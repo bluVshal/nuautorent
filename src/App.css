@@ -1,9 +1,0 @@
-:root {
-  --nuBlack:#1B1212;
-  --nuRed:#C41E3A;
-  --nuwhite: red;
-}
-
-.root-container{
-  background-color: var(nuwhite);
-}

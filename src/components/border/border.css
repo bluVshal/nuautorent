@@ -1,0 +1,25 @@
+.inner-border {
+    width: 94.5vw;
+    height: 91.5vh;
+    border: 0.5rem solid var(--nuRed);
+    border-radius: 5.5vh;
+}
+
+.middle-border {
+    width: 92vw;
+    height: 90vh;
+    border: 0.5rem solid var(--nuWhite);
+    border-radius: 6vh;
+}
+
+.outer-border {
+    width: 97vw;
+    height: 95vh;
+    border: 0.5rem solid var(--nuBlack);
+    border-radius: 7vh;
+}
+
+.content-container{
+    width: 89vw;
+    height: 80vh;
+}
