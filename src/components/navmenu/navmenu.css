@@ -1,0 +1,22 @@
+.comp-logo {
+    width: 9vw;
+    height: 12vh;
+}
+
+.menu-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-items-container{
+    background-color: #9e180f;
+}
+
+.menu-item{
+    margin: 2vw;
+}
+
+.menu-item:hover{
+    color:azure;
+}

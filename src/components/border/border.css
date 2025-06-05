@@ -3,6 +3,9 @@
     height: 91.5vh;
     border: 0.5rem solid var(--nuRed);
     border-radius: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .middle-border {
@@ -19,7 +22,7 @@
     border-radius: 7vh;
 }
 
-.content-container{
+.content-container {
     width: 89vw;
-    height: 80vh;
+    height: 89vh;
 }

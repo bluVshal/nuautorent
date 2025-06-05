@@ -1,25 +1,30 @@
 :root {
-  --nuBlack:#1B1212;
-  --nuRed:#C41E3A;
-  --nuWhite:ivory;
-  --nuA:#CD5C5C;
-  --nuAHover:#B22222;
-  --nuDisabled:#696969
+  --nuBlack: #1B1212;
+  --nuRed: #C41E3A;
+  --nuWhite: ivory;
+  --nuA: #CD5C5C;
+  --nuAHover: #B22222;
+  --nuDisabled: #696969
 }
 
 body {
   background-color: var(--nuWhite);
 }
 
+p, a {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Sen", sans-serif;
+  font-optical-sizing: auto;
+}
+
 a {
-  color: var(--nuA);
   text-decoration: none;
 }
 
-a:hover{
-  color: var(--nuAHover);
-}
-
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }

@@ -2,7 +2,8 @@ import React from 'react'
 import './border.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../../pages/Home';
-import About from '../../pages/About';
+import Cars from '../../pages/Cars';
+import Suppliers from '../../pages/Suppliers';
 import NavMenu from '../../components/navmenu';
 
 const Border = () => {
@@ -14,7 +15,8 @@ const Border = () => {
             <NavMenu />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/cars" element={<Cars />} />
+              <Route path="/suppliers" element={<Suppliers />} />
             </Routes>
           </div>
         </div>
