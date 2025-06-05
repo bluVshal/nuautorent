@@ -4,6 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../../pages/Home';
 import Cars from '../../pages/Cars';
 import Suppliers from '../../pages/Suppliers';
+import Customers from '../../pages/Customers';
+import Maintenance from '../../pages/Maintenance';
+import Rental from '../../pages/Rental';
 import NavMenu from '../../components/navmenu';
 
 const Border = () => {
@@ -17,6 +20,9 @@ const Border = () => {
               <Route path="/" element={<Home />} />
               <Route path="/cars" element={<Cars />} />
               <Route path="/suppliers" element={<Suppliers />} />
+              <Route path="/customers" element={<Customers />} />
+              <Route path="/maintenance" element={<Maintenance />} />
+              <Route path="/rental" element={<Rental />} />
             </Routes>
           </div>
         </div>
