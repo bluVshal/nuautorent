@@ -10,6 +10,7 @@ const NavMenu = () => {
 
   return (
     <div>
+      
       {menuItemsArr.map((mnu) => {
         return (
           <>
@@ -17,7 +18,6 @@ const NavMenu = () => {
           </>
         );
       })}
-
 
     </div>
   )
