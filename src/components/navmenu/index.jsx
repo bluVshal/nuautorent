@@ -14,7 +14,7 @@ const NavMenu = () => {
 
   return (
     <div className='menu-container'>
-    <img className='comp-logo' src='/nuAuto512x512.png' />
+      <img className='comp-logo' src='/nuAuto512x512.png' />
       {menuItemsArr.map((mnu) => {
         return (
           <div className='menu-items-container'>
@@ -22,6 +22,11 @@ const NavMenu = () => {
           </div>
         );
       })}
+
+      <div className='login-container'>
+        <p> Login </p>
+      </div>
+
     </div>
   )
 }
