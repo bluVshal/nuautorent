@@ -4,12 +4,15 @@ import SignIn from './signin';
 import './login.css';
 
 const Login = (props) => {
-    const {type, show} = props;
-    const showHideClassName = show ? "modal display-block" : "modal display-none";
-
+  const { type, show } = props;
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
+  const handleClose = () => { show=false;}
   return (
     <div className={showHideClassName}>
-       { type === 'Login' ?  <LoginModal />  : <SignIn /> }
+      <button type="button" onClick={handleClose}>
+        Close
+      </button>
+      {type === 'Login' ? <LoginModal /> : <SignIn />}
     </div>
   )
 }
