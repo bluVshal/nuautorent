@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './navmenu.css';
 import LoginModal from '../../components/login';
+import { Dialog } from 'primereact/dialog';
 
 const NavMenu = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [visible, setVisible] = useState(false);
   const menuItemsArr = [
     { "link": "/", "title": "Home" },
     { "link": "/cars", "title": "Cars" },
@@ -24,9 +25,12 @@ const NavMenu = () => {
           </div>
         );
       })}
-      <LoginModal type='Login' show={modalShow} onHide={() => setModalShow(false)} />
-      <div className='login-container'>
-        <Link onClick={() => { setModalShow(true) }}> Login </Link>
+
+      <div>
+        <Link label="Show" icon="pi pi-external-link" onClick={() => setVisible(true)}> Login </Link>
+        <Dialog header="Login" visible={visible} style={{ width: '50vw' }} onHide={() => { if (!visible) return; setVisible(false); }}>
+          <LoginModal type='Login'/>
+        </Dialog>
       </div>
 
     </div>
