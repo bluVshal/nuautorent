@@ -1,13 +1,15 @@
 import React from 'react';
-import Login from './login';
+import LoginModal from './loginModal';
 import SignIn from './signin';
+import './login.css';
 
 const Login = (props) => {
-    const {type} = props;
+    const {type, show} = props;
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
-    <div>
-       { type === 'Login' ?  <p> <Login />  </p> : <p> <SignIn /> </p>}
+    <div className={showHideClassName}>
+       { type === 'Login' ?  <LoginModal />  : <SignIn /> }
     </div>
   )
 }

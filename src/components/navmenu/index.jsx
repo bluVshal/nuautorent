@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './navmenu.css';
+import LoginModal from '../../components/login';
 
 const NavMenu = () => {
+  const [modalShow, setModalShow] = useState(false);
   const menuItemsArr = [
     { "link": "/", "title": "Home" },
     { "link": "/cars", "title": "Cars" },
@@ -17,14 +19,14 @@ const NavMenu = () => {
       <img className='comp-logo' src='/nuAuto512x512.png' />
       {menuItemsArr.map((mnu) => {
         return (
-          <div className='menu-items-container'>
-            <Link className='menu-item' key={mnu.title} to={mnu.link}> {mnu.title} </Link>
+          <div key={mnu.title} className='menu-items-container'>
+            <Link className='menu-item' to={mnu.link}> {mnu.title} </Link>
           </div>
         );
       })}
-
+      <LoginModal type='Login' show={modalShow} onHide={() => setModalShow(false)} />
       <div className='login-container'>
-        <p> Login </p>
+        <Link onClick={() => { setModalShow(true) }}> Login </Link>
       </div>
 
     </div>
