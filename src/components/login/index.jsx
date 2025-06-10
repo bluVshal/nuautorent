@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginModal from './loginModal';
-import SignIn from './signin';
+import SignUp from './signup';
 import './login.css';
 
 const Login = (props) => {
@@ -8,7 +8,7 @@ const Login = (props) => {
 
   return (
     <div>
-      {type === 'Login' ? <LoginModal /> : <SignIn />}
+      {type === 'Login' ? <LoginModal /> : <SignUp />}
     </div>
   )
 }

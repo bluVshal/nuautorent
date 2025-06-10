@@ -29,7 +29,7 @@ const NavMenu = () => {
       <div>
         <Link label="Show" icon="pi pi-external-link" onClick={() => setVisible(true)}> Login </Link>
         <Dialog header="Login" visible={visible} style={{ width: '50vw' }} onHide={() => { if (!visible) return; setVisible(false); }}>
-          <LoginModal type='Login'/>
+          <LoginModal type='SignUp'/>
         </Dialog>
       </div>
 
