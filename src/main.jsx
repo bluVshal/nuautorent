@@ -4,12 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 import './index.css';
 import App from './App.jsx';
+import { Provider } from 'react-redux';
+import store from './api/store';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <PrimeReactProvider>
       <BrowserRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </BrowserRouter>
     </PrimeReactProvider>
   </StrictMode>
