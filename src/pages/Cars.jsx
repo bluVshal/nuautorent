@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCars } from '../api/slices/carsSlice';
 
 const Cars = () => {
-  const carsStatus = useSelector(state => state.status);
+  const carsStatus = useSelector(state => state.cars.status);
   const dispatch = useDispatch();
-  const carsArr = useSelector(state => state.value);
+  const carsArr = useSelector(state => state.cars.value);
 
   return (
     <div>
@@ -14,9 +14,9 @@ const Cars = () => {
         <button onClick={() => dispatch(fetchCars())}>{carsStatus === 'loading' ? 'Loading...' : 'Fetch the Cars'}</button>
         {carsStatus === 'succeeded' &&
           <div>
-            <p>User Roles: </p>
+            <p>Cars List: </p>
             {carsArr.map((cr) => {
-              return <p key={cr.carId}>{cr.carId}</p>
+              return <p key={cr.carId}>{cr.carMake}</p>
             })}
           </div>
         }
