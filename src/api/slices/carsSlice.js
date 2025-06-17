@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchCars = createAsyncThunk(
     'cars/fetch',
     async () => {
-        const response = await axios.get('http://localhost:5000/cars/all',{
+        const response = await axios.get('http://localhost:5000/cars/short',{
             headers: {Accept: 'application/json'}
         });
         return response.data;
