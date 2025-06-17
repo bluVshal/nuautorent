@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CarSearch from './carSearch';
 import SuppliersSearch from './suppliersSearch';
 
@@ -7,7 +8,9 @@ const Search = (props) => {
 
   return (
     <div>
-     { type ==="Cars" ? <CarSearch /> : type==="Suppliers" ? <SuppliersSearch /> : <p>Type</p>}
+     { type ==="Cars" ? <CarSearch /> : 
+     type==="Suppliers" ? <SuppliersSearch /> : 
+     <p>Type</p>}
     </div>
   )
 }
