@@ -1,8 +1,12 @@
 import React from 'react';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Search from '../components/search';
 
 const Cars = () => {
+  const [t, i18n] = useTranslation("global");
   const carsStatus = useSelector(state => state.cars.status);
   const carsArr = useSelector(state => state.cars.value);
 
@@ -10,20 +14,19 @@ const Cars = () => {
     <div>
       <h1> CARS </h1>
       <div>
-        <Search type="Cars"/>
+        <Search type="Cars" />
       </div>
       <div>
         {carsStatus === 'succeeded' &&
-          <div>
-            <p>Cars List: </p>
-            {carsArr.map((cr) => {
-              return <p key={cr.carId}>{cr.carMake}</p>
+          <DataTable value={carsArr} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            {Object.keys(carsArr[0]).map((objKey) => {
+              return <Column key={objKey} field={objKey} header={t("api.cars."+objKey)}></Column>
             })}
-          </div>
+          </DataTable>
         }
       </div>
     </div>
   )
 }
 
-export default Cars
+export default Cars;

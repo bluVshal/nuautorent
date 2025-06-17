@@ -1,0 +1,30 @@
+{
+    "app": {
+        "title": "My Application"
+    },
+    "api": {
+        "cars": {
+            "carId": "Id",
+            "carChassisNumber": "Chassis No.",
+            "carMake": "Make",
+            "carModel": "Model",
+            "carNTARegNumber": "NTA Reg No",
+            "carBuyDate": "Buy Date",
+            "carPrice": "Rent Price",
+            "carStatus": "Status",
+            "carSoldDate": "Date Sold",
+            "carPhoto": "Photo",
+            "carType": "Type",
+            "isCarElectric": "Electric",
+            "isCarHybrid": "Hybrid",
+            "carTransmission": "Transmission",
+            "carSeats": "Seats",
+            "carNoDoors": "No. Doors",
+            "carHP": "HP",
+            "carCo2Emission": "Co2",
+            "active": "Active",
+            "carAddDate": "Added Date",
+            "carLastModDate": "Last Modified"
+        }
+    }
+}
