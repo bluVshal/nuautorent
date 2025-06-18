@@ -10,8 +10,6 @@ const Cars = () => {
   const carsStatus = useSelector(state => state.cars.status);
   const carsArr = useSelector(state => state.cars.value);
 
-  console.log(carsArr)
-
   return (
     <div>
       <h1> CARS </h1>
