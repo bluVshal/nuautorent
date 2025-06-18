@@ -23,8 +23,19 @@
             "carHP": "HP",
             "carCo2Emission": "Co2",
             "active": "Active",
-            "carAddDate": "Added Date",
-            "carLastModDate": "Last Modified"
+            "carAddDate": "Date Added",
+            "carLastModDate": "Date Last Modified"
+        },
+        "suppliers": {
+            "supplierId": "Id",
+            "supplierName": "Name",
+            "supplierAddress": "Address",
+            "supplierEmail": "Email",
+            "supplierContactName": "Contact Name",
+            "supplierPhone": "Phone",
+            "active": "Active",
+            "createdDate": "Date Added",
+            "lastModified": "Date Last Modified"
         }
     }
 }
