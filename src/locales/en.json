@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "My Application"
+        "title": "NU Auto Rental Services"
     },
     "api": {
         "cars": {
@@ -37,5 +37,9 @@
             "createdDate": "Date Added",
             "lastModified": "Date Last Modified"
         }
+    },
+    "messages":{
+        "error.nosupppliersfound":"No Suppliers Found",
+        "error.nocarsfound":"No Cars Found"
     }
 }
