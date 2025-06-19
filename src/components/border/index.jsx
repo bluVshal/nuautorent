@@ -8,6 +8,7 @@ import Customers from '../../pages/Customers';
 import Maintenance from '../../pages/Maintenance';
 import Rental from '../../pages/Rental';
 import NavMenu from '../../components/navmenu';
+import Users from '../../pages/Users';
 
 const Border = () => {
   return (
@@ -23,6 +24,7 @@ const Border = () => {
               <Route path="/customers" element={<Customers />} />
               <Route path="/maintenance" element={<Maintenance />} />
               <Route path="/rental" element={<Rental />} />
+              <Route path="/users" element={<Users />} />
             </Routes>
           </div>
         </div>

@@ -20,3 +20,7 @@
 .menu-item:hover{
     color:azure;
 }
+
+.modal-container{
+    width: 27vw;
+}

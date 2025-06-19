@@ -1,29 +1,30 @@
 import React from 'react'
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
+import './login.css'
 
 const LoginModal = () => {
   return (
     <div>
       <p> LOGIN HERE! </p>
       
-      <div className="inline-flex flex-column gap-2">
-        <label htmlFor="username" className="text-primary-50 font-semibold">
+      <div>
+        <label htmlFor="username">
           Username
         </label>
-        <InputText id="username" label="Username" className="bg-white-alpha-20 border-none p-3 text-primary-50"></InputText>
+        <InputText id="username" label="Username" ></InputText>
       </div>
 
-      <div className="inline-flex flex-column gap-2">
-        <label htmlFor="password" className="text-primary-50 font-semibold">
+      <div>
+        <label htmlFor="password">
           Password
         </label>
-        <InputText id="password" label="Password" className="bg-white-alpha-20 border-none p-3 text-primary-50" type="password"></InputText>
+        <InputText id="password" label="Password" type="password"></InputText>
       </div>
 
       <div className="flex align-items-center gap-2">
-        <Button label="Sign-In" onClick={(e) => hide(e)} text className="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
-        <Button label="Cancel" onClick={(e) => hide(e)} text className="p-3 w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"></Button>
+        <Button label="Sign-In" onClick={(e) => hide(e)} text></Button>
+        <Button label="Cancel" onClick={(e) => hide(e)} text></Button>
       </div>
 
     </div>

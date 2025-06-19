@@ -12,7 +12,8 @@ const NavMenu = () => {
     { "link": "/suppliers", "title": "Suppliers" },
     { "link": "/customers", "title": "Customers" },
     { "link": "/maintenance", "title": "Maintenance" },
-    { "link": "/rental", "title": "Rental" }
+    { "link": "/rental", "title": "Rental" },
+    { "link": "/users", "title": "Users" }  
   ];
 
   return (
@@ -28,7 +29,7 @@ const NavMenu = () => {
 
       <div>
         <Link label="Show" icon="pi pi-external-link" onClick={() => setVisible(true)}> Login </Link>
-        <Dialog header="Login" visible={visible} style={{ width: '50vw' }} onHide={() => { if (!visible) return; setVisible(false); }}>
+        <Dialog className='modal-container' header="Login" visible={visible} onHide={() => { if (!visible) return; setVisible(false); }}>
           <LoginModal type='SignUp'/>
         </Dialog>
       </div>
