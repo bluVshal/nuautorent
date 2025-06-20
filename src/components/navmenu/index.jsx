@@ -28,7 +28,7 @@ const NavMenu = () => {
       })}
 
       <div className='menu-items-container'>
-        <Link className='menu-item' label="Show" icon="pi pi-external-link" onClick={() => setVisible(true)}> Login </Link>
+        <Link className='menu-item' label="Show" onClick={() => setVisible(true)}> Login </Link>
         <Dialog className='modal-container' header="Login" visible={visible} onHide={() => { if (!visible) return; setVisible(false); }}>
           <LoginModal type='SignUp'/>
         </Dialog>

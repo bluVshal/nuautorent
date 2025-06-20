@@ -11,16 +11,32 @@
 
 .menu-items-container{
     background-color: #9e180f;
+    height: 6.5vh;
+    border: solid 0.1vh rgb(134, 13, 13);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-item{
     margin: 2vw;
+    text-transform: uppercase;
+    color: rgb(219, 192, 38);
 }
 
 .menu-item:hover{
     color:azure;
+    text-decoration: overline;
+}
+
+.menu-item:active {
+    text-decoration-thickness: 25px;
 }
 
 .modal-container{
+    background-color: ivory;
+    border: solid 0.24vh darkgray;
+    padding: 1vw;
     width: 27vw;
 }
