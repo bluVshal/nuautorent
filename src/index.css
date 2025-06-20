@@ -11,6 +11,11 @@ body {
   background-color: var(--nuWhite);
 }
 
+button{
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+}
+
 p, a {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;

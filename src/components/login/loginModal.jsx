@@ -8,23 +8,23 @@ const LoginModal = () => {
     <div>
       <p> LOGIN HERE! </p>
       
-      <div>
-        <label htmlFor="username">
+      <div className='text-container'>
+        <label className='lbl-text' htmlFor="username">
           Username
         </label>
         <InputText id="username" label="Username" ></InputText>
       </div>
 
-      <div>
-        <label htmlFor="password">
+      <div className='text-container'>
+        <label className='lbl-text' htmlFor="password">
           Password
         </label>
         <InputText id="password" label="Password" type="password"></InputText>
       </div>
 
-      <div className="flex align-items-center gap-2">
-        <Button label="Sign-In" onClick={(e) => hide(e)} text></Button>
-        <Button label="Cancel" onClick={(e) => hide(e)} text></Button>
+      <div className="btn-container">
+        <Button label="Sign-In" onClick={(e) => hide(e)} text className="btn-submit"></Button>
+        <Button label="Cancel" onClick={(e) => hide(e)} text className="btn-cancel"></Button>
       </div>
 
     </div>

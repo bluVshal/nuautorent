@@ -70,7 +70,7 @@ const CarSearch = () => {
         </div>
 
       </div>
-      <Button raised label={carsStatus === 'loading' ? 'Loading...' : 'Search'} disabled={carsStatus === 'loading'} onClick={() => dispatch(fetchCars())} />
+      <Button raised label={carsStatus === 'loading' ? 'Searching...' : 'Search'} disabled={carsStatus === 'loading'} onClick={() => dispatch(fetchCars())} />
       {carsStatus === "failed" ? <p>{t("messages.error.nocarsfound")}</p> : ""}
     </div>
   )

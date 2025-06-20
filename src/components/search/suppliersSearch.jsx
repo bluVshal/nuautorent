@@ -35,7 +35,7 @@ const SuppliersSearch = () => {
         <InputText id="supplierphone" />
 
       </div>
-      <Button raised label={suppliersStatus === 'loading' ? 'Loading...' : 'Search'} disabled={suppliersStatus === 'loading'} onClick={() => dispatch(fetchSuppliers())} />
+      <Button raised label={suppliersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={suppliersStatus === 'loading'} onClick={() => dispatch(fetchSuppliers())} />
       {suppliersStatus === "failed" ? <p>{t("messages.error.nosupppliersfound")}</p> : ""}
     </div>
   )

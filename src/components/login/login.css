@@ -1,0 +1,21 @@
+
+
+.btn-cancel{
+    margin: 5px;
+    background-color: rgb(161, 44, 44);
+    color:rgb(198, 241, 198)
+}
+
+.btn-submit{
+    margin: 5px;
+    background-color: rgb(61, 155, 61);
+    color:rgb(198, 241, 198)
+}
+
+.text-container{
+    margin:5px;
+}
+
+.lbl-text{
+    padding-right: 5px;
+}
