@@ -3,18 +3,33 @@ button {
     margin-left: 2vw;
 }
 
+
 .header-text {
     margin-left: 2vw;
 }
 
+.lbl-search-item {
+    margin-left: 1.33vw;
+}
+
+.rd-btn {
+    margin-left: 1vw;
+}
+
 .search-item-container {
     margin: 2vw;
+    display: flex;
+    flex-direction: row;
 }
 
 .search-main-container {
     height: 30vh;
     padding: 3vw;
-    border: 1.5em solid rgba(#000, .2);
+    border: 1vw solid rgba(255, 255, 240, 0.7);
     border-radius: 25px;
-    background-color: rgba(238, 231, 199, 0.6);
+    background-color: rgba(255, 255, 228, 0.9);
+}
+
+.txt-search-item {
+    margin-left: 0.45vw;
 }

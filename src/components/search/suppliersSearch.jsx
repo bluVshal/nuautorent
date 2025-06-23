@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
@@ -9,9 +9,27 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SuppliersSearch = () => {
+  const nameInput = useRef(null);
+  const [isFormReset, setIsFormReset] = useState('true');
   const dispatch = useDispatch();
   const suppliersStatus = useSelector(state => state.suppliers.status);
   const [t, i18n] = useTranslation("global");
+  const resetAll = () => {
+    setIsFormReset(true);
+    nameInput.current.focus();
+  }
+  const setDisplayValue = () => {
+    if(suppliersStatus === 'failed' && isFormReset === false){
+      return t("messages.error.nosupppliersfound")
+    }
+    else {
+      return '';
+    }
+  }
+  const searchSupplier = () => {
+    setIsFormReset(false);
+    dispatch(fetchSuppliers());
+  }
 
   return (
     <div>
@@ -20,28 +38,29 @@ const SuppliersSearch = () => {
         <div className='search-item-container'>
 
           <label htmlFor="suppliername"> {t('api.suppliers.supplierName')} </label>
-          <InputText id="suppliername" />
+          <InputText ref={nameInput} autoFocus className='txt-search-item' id="suppliername" />
 
-          <label htmlFor="supplieraddress"> {t('api.suppliers.supplierAddress')} </label>
-          <InputText id="supplieraddress" />
+          <label className='lbl-search-item' htmlFor="supplieraddress"> {t('api.suppliers.supplierAddress')} </label>
+          <InputText className='txt-search-item' id="supplieraddress" />
 
-          <label htmlFor="supplieremail"> {t('api.suppliers.supplierEmail')} </label>
-          <InputText id="supplieremail" />
+          <label className='lbl-search-item' htmlFor="supplieremail"> {t('api.suppliers.supplierEmail')} </label>
+          <InputText className='txt-search-item' id="supplieremail" />
 
         </div>
 
         <div className='search-item-container'>
           <label htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
-          <InputText id="suppliercontactname" />
+          <InputText className='txt-search-item' id="suppliercontactname" />
 
-          <label htmlFor="supplierphone"> {t('api.suppliers.supplierPhone')} </label>
-          <InputText id="supplierphone" />
+          <label className='lbl-search-item' htmlFor="supplierphone"> {t('api.suppliers.supplierPhone')} </label>
+          <InputText className='txt-search-item' id="supplierphone" />
         </div>
 
-        <Button raised label={suppliersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={suppliersStatus === 'loading'} onClick={() => dispatch(fetchSuppliers())} />
-        <Button label={t('buttons.reset')} disabled={suppliersStatus === 'loading'}></Button>
+        <Button raised label={suppliersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={suppliersStatus === 'loading'} onClick={searchSupplier} />
+        <Button label={t('buttons.reset')} disabled={suppliersStatus === 'loading'} onClick={resetAll}></Button>
       </div>
-      {suppliersStatus === "failed" ? <p>{t("messages.error.nosupppliersfound")}</p> : ""}
+      
+      <p>{setDisplayValue()}</p>
     </div>
   )
 }
