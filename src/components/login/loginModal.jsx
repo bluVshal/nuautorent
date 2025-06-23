@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './login.css'
 
 const LoginModal = () => {
+  const uNameInput = useRef(null);
+
   return (
     <div>
       <p> LOGIN HERE! </p>
-      
+
       <div className='text-container'>
         <label className='lbl-text' htmlFor="username">
           Username
         </label>
-        <InputText id="username" label="Username" ></InputText>
+        <InputText ref={uNameInput} autoFocus id="username" label="Username" ></InputText>
       </div>
 
       <div className='text-container'>

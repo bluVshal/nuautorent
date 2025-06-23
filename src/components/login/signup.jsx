@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './login.css'
 
 const SignIn = () => {
+  const uNameInput = useRef(null);
+
   return (
     <div>
       <p> SIGN UP HERE! </p>
@@ -12,7 +14,7 @@ const SignIn = () => {
         <label htmlFor="username" className='lbl-text'>
           Username
         </label>
-        <InputText id="username" label="Username" className=""></InputText>
+        <InputText ref={uNameInput} autoFocus id="username" label="Username" className=""></InputText>
       </div>
 
       <div className="text-container">
