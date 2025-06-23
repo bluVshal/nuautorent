@@ -15,27 +15,32 @@ const SuppliersSearch = () => {
 
   return (
     <div>
-      <h4> Suppliers Search </h4>
-      <div>
-        <label htmlFor="suppliername"> {t('api.suppliers.supplierName')} </label>
-        <InputText id="suppliername" />
+      <div className='search-main-container'>
+        <h4 className='header-text'> Suppliers Search </h4>
+        <div className='search-item-container'>
 
-        <label htmlFor="supplieraddress"> {t('api.suppliers.supplierAddress')} </label>
-        <InputText id="supplieraddress" />
+          <label htmlFor="suppliername"> {t('api.suppliers.supplierName')} </label>
+          <InputText id="suppliername" />
 
-        <label htmlFor="supplieremail"> {t('api.suppliers.supplierEmail')} </label>
-        <InputText id="supplieremail" />
+          <label htmlFor="supplieraddress"> {t('api.suppliers.supplierAddress')} </label>
+          <InputText id="supplieraddress" />
 
+          <label htmlFor="supplieremail"> {t('api.suppliers.supplierEmail')} </label>
+          <InputText id="supplieremail" />
+
+        </div>
+
+        <div className='search-item-container'>
+          <label htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
+          <InputText id="suppliercontactname" />
+
+          <label htmlFor="supplierphone"> {t('api.suppliers.supplierPhone')} </label>
+          <InputText id="supplierphone" />
+        </div>
+
+        <Button raised label={suppliersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={suppliersStatus === 'loading'} onClick={() => dispatch(fetchSuppliers())} />
+        <Button label={t('buttons.reset')} disabled={suppliersStatus === 'loading'}></Button>
       </div>
-      <div>
-        <label htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
-        <InputText id="suppliercontactname" />
-
-        <label htmlFor="supplierphone"> {t('api.suppliers.supplierPhone')} </label>
-        <InputText id="supplierphone" />
-
-      </div>
-      <Button raised label={suppliersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={suppliersStatus === 'loading'} onClick={() => dispatch(fetchSuppliers())} />
       {suppliersStatus === "failed" ? <p>{t("messages.error.nosupppliersfound")}</p> : ""}
     </div>
   )

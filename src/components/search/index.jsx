@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './search.css';
 import CarSearch from './carSearch';
 import SuppliersSearch from './suppliersSearch';
 

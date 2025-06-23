@@ -43,5 +43,8 @@
         "error.nocarsfound":"No Cars Found",
         "error.notfound":"Sorry! The resource you are requesting has not been found",
         "error.unauthorised":"You are not authorised to access this resource."
+    },
+    "buttons":{
+        "reset":"Reset"
     }
 }

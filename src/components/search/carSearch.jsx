@@ -30,10 +30,10 @@ const CarSearch = () => {
 
   return (
     <div>
-      <h4>Car Search</h4>
-      <div>
+      <div className='search-main-container'>
+        <h4 className='header-text'>Car Search</h4>
+        <div className='search-item-container'>
 
-        <div>
           <label htmlFor="carmake"> {t('api.cars.carMake')} </label>
           <InputText id="carmake" />
 
@@ -49,7 +49,7 @@ const CarSearch = () => {
 
         </div>
 
-        <div>
+        <div className='search-item-container'>
           <label htmlFor="carprice"> {t('api.cars.carPrice')} </label>
           <InputText id="carprice" />
 
@@ -69,9 +69,11 @@ const CarSearch = () => {
 
         </div>
 
+        <Button raised label={carsStatus === 'loading' ? 'Searching...' : 'Search'} disabled={carsStatus === 'loading'} onClick={() => dispatch(fetchCars())} />
+        <Button label={t('buttons.reset')} disabled={carsStatus === 'loading'}></Button>
       </div>
-      <Button raised label={carsStatus === 'loading' ? 'Searching...' : 'Search'} disabled={carsStatus === 'loading'} onClick={() => dispatch(fetchCars())} />
       {carsStatus === "failed" ? <p>{t("messages.error.nocarsfound")}</p> : ""}
+
     </div>
   )
 };
