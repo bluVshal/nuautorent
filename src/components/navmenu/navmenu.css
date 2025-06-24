@@ -9,6 +9,12 @@
     align-items: center;
 }
 
+.modal-container{
+    width: 70vw;
+    height: 25vh;
+    border-radius: 2vw;
+}
+
 .menu-items-container{
     background-color: #9e180f;
     height: 6.5vh;

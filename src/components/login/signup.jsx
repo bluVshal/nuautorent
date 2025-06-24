@@ -7,9 +7,7 @@ const SignIn = () => {
   const uNameInput = useRef(null);
 
   return (
-    <div>
-      <p> SIGN UP HERE! </p>
-
+    <div className='items-container'>
       <div className="text-container">
         <label htmlFor="username" className='lbl-text'>
           Username

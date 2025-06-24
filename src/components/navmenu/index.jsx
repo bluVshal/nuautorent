@@ -16,6 +16,8 @@ const NavMenu = () => {
     { "link": "/users", "title": "Users" }  
   ];
 
+  let type="Login";
+
   return (
     <div className='menu-container'>
       <img className='comp-logo' src='/nuAuto512x512.png' />
@@ -29,8 +31,8 @@ const NavMenu = () => {
 
       <div className='menu-items-container'>
         <Link className='menu-item' label="Show" onClick={() => setVisible(true)}> Login </Link>
-        <Dialog className='modal-container' header="Login" visible={visible} onHide={() => { if (!visible) return; setVisible(false); }}>
-          <LoginModal type='SignUp'/>
+        <Dialog className='modal-container' header={type.toUpperCase()} visible={visible} onHide={() => { if (!visible) return; setVisible(false); }}>
+          <LoginModal type={type}/>
         </Dialog>
       </div>
 

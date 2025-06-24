@@ -7,9 +7,7 @@ const LoginModal = () => {
   const uNameInput = useRef(null);
 
   return (
-    <div>
-      <p> LOGIN HERE! </p>
-
+    <div className='items-container'>
       <div className='text-container'>
         <label className='lbl-text' htmlFor="username">
           Username
