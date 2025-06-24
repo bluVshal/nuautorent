@@ -1,34 +1,34 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchSomeSuppliers = createAsyncThunk(
-    'cars/fetch',
+export const fetchSomeUsers = createAsyncThunk(
+    'Users/fetch',
     async () => {
-        const response = await axios.get('http://localhost:5000/suppliers/short',{
+        const response = await axios.get('http://localhost:5000/users/short',{
             headers: {Accept: 'application/json'}
         });
         return response.data;
     }
 );
 
-export const suppliersSlice = createSlice({
-    name:'suppliers',
+export const usersSlice = createSlice({
+    name:'users',
     initialState:{
         value:[],
         status: "idle",
     },
     reducers:{},
     extraReducers: builder => {
-        builder.addCase(fetchSomeSuppliers.pending, state => {
+        builder.addCase(fetchSomeUsers.pending, state => {
             state.status = 'loading';
         })
-        .addCase(fetchSomeSuppliers.fulfilled, (state, action) => {
+        .addCase(fetchSomeUsers.fulfilled, (state, action) => {
             state.status = 'succeeded';
             state.value = action.payload;
         })
-        .addCase(fetchSomeSuppliers.rejected, state => {
+        .addCase(fetchSomeUsers.rejected, state => {
             state.status = 'failed';
-            state.value = 'Failed to fetch suppliers'
+            state.value = 'Failed to fetch Users'
         })
     }
 });

@@ -7,7 +7,7 @@ import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { Dropdown } from 'primereact/dropdown';
 import { RadioButton } from 'primereact/radiobutton';
-import { fetchCars } from '../../api/slices/carsSlice';
+import { fetchSomeCars } from '../../api/slices/carsSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -60,7 +60,7 @@ const CarSearch = () => {
   };
   const searchCar = () => {
     setIsFormReset(false);
-    dispatch(fetchCars());
+    dispatch(fetchSomeCars());
   };
 
   return (

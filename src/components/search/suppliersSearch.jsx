@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
-import { fetchSuppliers } from '../../api/slices/suppliersSlice';
+import { fetchSomeSuppliers } from '../../api/slices/suppliersSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -39,7 +39,7 @@ const SuppliersSearch = () => {
   };
   const searchSupplier = () => {
     setIsFormReset(false);
-    dispatch(fetchSuppliers());
+    dispatch(fetchSomeSuppliers());
     console.log(supplierName);
   };
 

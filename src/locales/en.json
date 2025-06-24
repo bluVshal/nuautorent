@@ -36,6 +36,14 @@
             "active": "Active",
             "createdDate": "Date Added",
             "lastModified": "Date Last Modified"
+        },
+        "users":{
+            "userId":"Id",
+            "userName":"Name",
+            "lastLoginDate":"Last Login Date",
+            "active":"Active",
+            "createdDate":"Created Date",
+            "lastModifiedDate":"Last Modified"
         }
     },
     "messages":{
