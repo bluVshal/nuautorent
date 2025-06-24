@@ -69,14 +69,14 @@ const CarSearch = () => {
         <h4 className='header-text'>Car Search</h4>
         <div className='search-item-container'>
 
-          <label htmlFor="carmake"> {t('api.cars.carMake')} </label>
+          <label className='lbl-search-item' htmlFor="carmake"> {t('api.cars.carMake')} </label>
           <InputText value={carMake} ref={makeInput} autoFocus className='txt-search-item' id="carmake" onChange={(event) => setCarMake(event.target.value)}/>
 
           <label className='lbl-search-item' htmlFor="carmodel"> {t('api.cars.carModel')} </label>
           <InputText value={carModel} className='txt-search-item' id="carmodel" onChange={(event) => setCarModel(event.target.value)}/>
 
           <label className='lbl-search-item' htmlFor="cartype"> {t('api.cars.carType')} </label>
-          <Dropdown value={carSelectedType} className='txt-search-item' id="cartype" onChange={(e) => setCarSelectedType(e.value)} options={carType} optionLabel="name"
+          <Dropdown value={carSelectedType} className='drp-search-item' id="cartype" onChange={(e) => setCarSelectedType(e.value)} options={carType} optionLabel="name"
             placeholder="Select a Type" checkmark={true} highlightOnSelect={false} />
 
           <label className='lbl-search-item' htmlFor="carntaregnumber"> {t('api.cars.carNTARegNumber')} </label>
@@ -85,22 +85,22 @@ const CarSearch = () => {
         </div>
 
         <div className='search-item-container'>
-          <label htmlFor="carprice"> {t('api.cars.carPrice')} </label>
-          <InputNumber value={carRentPrice} className='txt-search-item' id="carprice" onChange={(event) => setCarRentPrice(event.target.value)}/>
+          <label className='lbl-search-item' htmlFor="carprice"> {t('api.cars.carPrice')} </label>
+          <InputNumber inputId="currency-japan" value={carRentPrice} className='txt-search-item' id="carprice" onChange={(event) => setCarRentPrice(event.target.value)}/>
 
           <label className='lbl-search-item' htmlFor="carstatus"> {t('api.cars.carStatus')} </label>
-          <Dropdown value={carSelectedStatus} className='txt-search-item' id="carstatus" onChange={(e) => setCarSelectedStatus(e.value)} options={carStatus} optionLabel="name"
+          <Dropdown value={carSelectedStatus} className='drp-search-item' id="carstatus" onChange={(e) => setCarSelectedStatus(e.value)} options={carStatus} optionLabel="name"
             placeholder="Select a Status" checkmark={true} highlightOnSelect={false} />
 
           <label className='lbl-search-item' htmlFor="cartransmission"> {t('api.cars.carTransmission')} </label>
-          <Dropdown value={carSelectedTransmission} className='txt-search-item' id="cartransmission" onChange={(e) => setCarSelectedTransmission(e.value)} options={carTransmission} optionLabel="name"
+          <Dropdown value={carSelectedTransmission} className='drp-search-item' id="cartransmission" onChange={(e) => setCarSelectedTransmission(e.value)} options={carTransmission} optionLabel="name"
             placeholder="Select a Transmission" checkmark={true} highlightOnSelect={false} />
 
-          <RadioButton className='rd-btn' inputId="electric" name="fuel" value="Electric" onChange={(e) => setCarElectric(e.value)} checked={carElectric === 1} />
-          <label htmlFor="electric" className="ml-2">{t('api.cars.isCarElectric')}</label>
+          <RadioButton className='rd-btn' inputId="electric" name="fuel" value="Electric" onChange={(e) => setCarElectric(e.value)} checked={carElectric === true} />
+          <label className='lbl-search-item' htmlFor="electric">{t('api.cars.isCarElectric')}</label>
 
-          <RadioButton className='rd-btn' inputId="hybrid" name="fuel" value="Hybrid" onChange={(e) => setCarHybrid(e.value)} checked={carHybrid === 1} />
-          <label htmlFor="hybrid" className="ml-2">{t('api.cars.isCarHybrid')}</label>
+          <RadioButton className='rd-btn' inputId="hybrid" name="fuel" value="Hybrid" onChange={(e) => setCarHybrid(e.value)} checked={carHybrid === true} />
+          <label className='lbl-search-item' htmlFor="hybrid">{t('api.cars.isCarHybrid')}</label>
 
         </div>
 

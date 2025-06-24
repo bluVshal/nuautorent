@@ -40,7 +40,6 @@ const SuppliersSearch = () => {
   const searchSupplier = () => {
     setIsFormReset(false);
     dispatch(fetchSomeSuppliers());
-    console.log(supplierName);
   };
 
   const handleChangeSupName = (event) => {
@@ -69,7 +68,7 @@ const SuppliersSearch = () => {
         <h4 className='header-text'> Suppliers Search </h4>
         <div className='search-item-container'>
 
-          <label htmlFor="suppliername"> {t('api.suppliers.supplierName')} </label>
+          <label className='lbl-search-item' htmlFor="suppliername"> {t('api.suppliers.supplierName')} </label>
           <InputText value={supplierName} ref={nameInput} autoFocus className='txt-search-item' id="suppliername" onChange={handleChangeSupName}/>
 
           <label className='lbl-search-item' htmlFor="supplieraddress"> {t('api.suppliers.supplierAddress')} </label>
@@ -81,7 +80,7 @@ const SuppliersSearch = () => {
         </div>
 
         <div className='search-item-container'>
-          <label htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
+          <label className='lbl-search-item' htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
           <InputText value={supplierContact} className='txt-search-item' id="suppliercontactname" onChange={handleChangeContact}/>
 
           <label className='lbl-search-item' htmlFor="supplierphone"> {t('api.suppliers.supplierPhone')} </label>

@@ -1,3 +1,8 @@
+:root {
+    --txt-background: rgba(209, 209, 56, 0.1);
+    --search-font: 'Manrope', sans-serif
+}
+
 button {
     margin-top: 1vw;
     margin-left: 2vw;
@@ -9,15 +14,23 @@ button {
 }
 
 .lbl-search-item {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 7px;
     margin-left: 1.33vw;
 }
 
 .rd-btn {
-    margin-left: 1vw;
+    margin-right: -1vw;
+    padding-left: 1.5vw;
+    margin-top: 0.45vw;
 }
 
 .search-item-container {
-    margin: 2vw;
+    font-family: var(--search-font);
+    margin-top: 2vw;
+    margin-left: 1vw;
+    margin-bottom: 1vw;
     display: flex;
     flex-direction: row;
 }
@@ -26,10 +39,28 @@ button {
     height: 30vh;
     padding: 3vw;
     border: 1vw solid rgba(255, 255, 240, 0.7);
-    border-radius: 25px;
     background-color: rgba(255, 255, 228, 0.9);
 }
 
+.drp-search-item {
+    font-size: 14px;
+    margin-top: 3px;
+    padding: 3px;
+    margin-left: 8px;
+    height: 30px;
+    background-color: var(--txt-background);
+    border: solid 1px grey;
+    border-radius: 11px;
+}
+
 .txt-search-item {
+    font-size: 14px;
     margin-left: 0.45vw;
+    background-color: var(--txt-background);
+    border-radius: 11px;
+}
+
+.p-dropdown-trigger{
+    width: 7px;
+    margin-left: 3px;
 }
