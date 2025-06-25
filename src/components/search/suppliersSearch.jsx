@@ -80,6 +80,7 @@ const SuppliersSearch = () => {
         </div>
 
         <div className='search-item-container'>
+        
           <label className='lbl-search-item' htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
           <InputText value={supplierContact} className='txt-search-item' id="suppliercontactname" onChange={handleChangeContact}/>
 

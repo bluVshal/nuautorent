@@ -28,7 +28,7 @@ const CarSearch = () => {
   const [carMake, setCarMake] = useState('');
   const [carModel, setCarModel] = useState('');
   const [carNTARegNumber, setCarNTARegNumber] = useState('');
-  const [carRentPrice, setCarRentPrice] = useState(0);
+  const [carRentPrice, setCarRentPrice] = useState('0');
   const [carSelectedStatus, setCarSelectedStatus] = useState(null);
   const [carSelectedType, setCarSelectedType] = useState(null);
   const [carSelectedTransmission, setCarSelectedTransmission] = useState(null);
@@ -43,7 +43,7 @@ const CarSearch = () => {
     setCarMake('');
     setCarModel('');
     setCarNTARegNumber('');
-    setCarRentPrice(0);
+    setCarRentPrice('0');
     setCarSelectedStatus(null);
     setCarSelectedType(null);
     setCarSelectedTransmission(null);
@@ -86,7 +86,7 @@ const CarSearch = () => {
 
         <div className='search-item-container'>
           <label className='lbl-search-item' htmlFor="carprice"> {t('api.cars.carPrice')} </label>
-          <InputNumber inputId="currency-japan" value={carRentPrice} className='txt-search-item' id="carprice" onChange={(event) => setCarRentPrice(event.target.value)}/>
+          <InputText value={carRentPrice} className='txt-search-item' id="carprice" onChange={(event) => setCarRentPrice(event.target.value)}/>
 
           <label className='lbl-search-item' htmlFor="carstatus"> {t('api.cars.carStatus')} </label>
           <Dropdown value={carSelectedStatus} className='drp-search-item' id="carstatus" onChange={(e) => setCarSelectedStatus(e.value)} options={carStatus} optionLabel="name"
