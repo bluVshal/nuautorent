@@ -4,17 +4,19 @@ import CarSearch from './carSearch';
 import SuppliersSearch from './suppliersSearch';
 import UsersSearch from './usersSearch';
 import CustomersSearch from './customersSearch';
+import BookingSearch from './bookingSearch';
 
 const Search = (props) => {
   const { type } = props;
 
   return (
     <div>
-     { type ==="Cars" ? <CarSearch /> : 
-     type==="Suppliers" ? <SuppliersSearch /> :
-     type==="Customers" ? <CustomersSearch /> :
-     type ==="Users" ? <UsersSearch /> :
-     <p>Type</p>}
+      {type === "Cars" ? <CarSearch /> :
+        type === "Suppliers" ? <SuppliersSearch /> :
+          type === "Customers" ? <CustomersSearch /> :
+            type === "Users" ? <UsersSearch /> :
+            type === "Booking" ? <BookingSearch /> :
+              <p>Type</p>}
     </div>
   )
 }

@@ -6,11 +6,11 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { RadioButton } from 'primereact/radiobutton';
-import { fetchSomeBooking } from '../../api/slices/bookingsSlice';
+import { fetchSomeBooking } from '../../api/slices/bookingSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-const bookingSearch = () => {
+const BookingSearch = () => {
     const dispatch = useDispatch();
     const [isFormReset, setIsFormReset] = useState('true');
     const bookingStatus = useSelector(state => state.booking.status);
@@ -37,4 +37,4 @@ const bookingSearch = () => {
     )
 }
 
-export default bookingSearch
+export default BookingSearch
