@@ -20,7 +20,7 @@ const Cars = () => {
         {carsStatus === 'succeeded' &&
           <DataTable value={carsArr} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
             {Object.keys(carsArr[0]).map((objKey) => {
-              return <Column key={objKey} field={objKey} header={t("api.cars."+objKey)}></Column>
+              return <Column key={objKey} field={objKey} header={t("api.cars." + objKey)}></Column>
             })}
           </DataTable>
         }

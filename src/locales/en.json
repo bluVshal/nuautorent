@@ -3,6 +3,7 @@
         "title": "NU Auto Rental Services"
     },
     "api": {
+        "booking": {},
         "cars": {
             "carId": "Id",
             "carChassisNumber": "Chassis No.",
@@ -21,12 +22,13 @@
             "carSeats": "Seats",
             "carNoDoors": "No. Doors",
             "carHP": "HP",
-            "carMileage":"Mileage",
+            "carMileage": "Mileage",
             "carCo2Emission": "Co2",
             "active": "Active",
             "carAddDate": "Date Added",
             "carLastModDate": "Date Last Modified"
         },
+        "customers": {},
         "suppliers": {
             "supplierId": "Id",
             "supplierName": "Name",
@@ -38,22 +40,25 @@
             "createdDate": "Date Added",
             "lastModified": "Date Last Modified"
         },
-        "users":{
-            "userId":"Id",
-            "userName":"Name",
-            "lastLoginDate":"Last Login Date",
-            "active":"Active",
-            "createdDate":"Created Date",
-            "lastModifiedDate":"Last Modified"
+        "users": {
+            "userId": "Id",
+            "userName": "Name",
+            "lastLoginDate": "Last Login Date",
+            "active": "Active",
+            "createdDate": "Created Date",
+            "lastModifiedDate": "Last Modified"
         }
     },
-    "messages":{
-        "error.nosupppliersfound":"No Suppliers Found",
-        "error.nocarsfound":"No Cars Found",
-        "error.notfound":"Sorry! The resource you are requesting has not been found",
-        "error.unauthorised":"You are not authorised to access this resource."
+    "messages": {
+        "error.nosupppliersfound": "No Suppliers Found",
+        "error.nocarsfound": "No Cars Found",
+        "error.nocustomersfound": "No Customers Found",
+        "error.nousersfound": "No Users Found",
+        "error.nobookingfound": "No Booking Found",
+        "error.notfound": "Sorry! The resource you are requesting has not been found",
+        "error.unauthorised": "You are not authorised to access this resource."
     },
-    "buttons":{
-        "reset":"Reset"
+    "buttons": {
+        "reset": "Reset"
     }
 }

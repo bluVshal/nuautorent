@@ -12,6 +12,7 @@ const NavMenu = () => {
     { "link": "/suppliers", "title": "Suppliers" },
     { "link": "/customers", "title": "Customers" },
     { "link": "/maintenance", "title": "Maintenance" },
+    { "link": "/booking", "title": "Booking"},
     { "link": "/rental", "title": "Rental" },
     { "link": "/users", "title": "Users" }  
   ];
