@@ -1,13 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { Button } from 'primereact/button';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from 'zod';
 import { InputText } from 'primereact/inputtext';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSomeUsers } from '../../api/slices/usersSlice';
 
 const schema = z.object({
-  email: z.string().email().min(2),
-  password: z.string().min(6)
+    email: z.string().email().min(2),
+    password: z.string().min(6)
 });
 
 const UsersSearch = () => {
