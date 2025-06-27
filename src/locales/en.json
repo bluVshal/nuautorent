@@ -58,6 +58,14 @@
         "error.notfound": "Sorry! The resource you are requesting has not been found",
         "error.unauthorised": "You are not authorised to access this resource."
     },
+    "signUp": {
+        "username": "Username",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "signIn": "SignIn",
+        "signUp": "SignUp",
+        "cancel": "Cancel"
+    },
     "buttons": {
         "reset": "Reset"
     }
