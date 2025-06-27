@@ -20,7 +20,7 @@ const RentalSearch = () => {
     const resetAll = () => {
 
     };
-    const searchUser = () => {
+    const searchRental = () => {
         setIsFormReset(false);
         dispatch(fetchSomeRental());
     };
@@ -30,7 +30,7 @@ const RentalSearch = () => {
         <div>
             <div className='search-main-container'>
                 <h4 className='header-text'> Rental Search </h4>
-                <Button raised label={rentalStatus === 'loading' ? 'Searching...' : 'Search'} disabled={rentalStatus === 'loading'} onClick={searchUser} />
+                <Button raised label={rentalStatus === 'loading' ? 'Searching...' : 'Search'} disabled={rentalStatus === 'loading'} onClick={searchRental} />
                 <Button label={t('buttons.reset')} disabled={rentalStatus === 'loading'} onClick={resetAll}></Button>
             </div>
         </div>
