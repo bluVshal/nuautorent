@@ -5,6 +5,7 @@ import SuppliersSearch from './suppliersSearch';
 import UsersSearch from './usersSearch';
 import CustomersSearch from './customersSearch';
 import BookingSearch from './bookingSearch';
+import RentalSearch from './rentalSearch';
 
 const Search = (props) => {
   const { type } = props;
@@ -15,8 +16,9 @@ const Search = (props) => {
         type === "Suppliers" ? <SuppliersSearch /> :
           type === "Customers" ? <CustomersSearch /> :
             type === "Users" ? <UsersSearch /> :
-            type === "Booking" ? <BookingSearch /> :
-              <p>Type</p>}
+              type === "Booking" ? <BookingSearch /> :
+                type === "Rental" ? <RentalSearch /> :
+                  <p>Type</p>}
     </div>
   )
 }
