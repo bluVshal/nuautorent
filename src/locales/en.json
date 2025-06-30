@@ -36,7 +36,8 @@
             "customerAddress":"Address",
             "customerEmail":"Email",
             "customerPhone":"Phone",
-            "customerLoyalty":"Loyalty Points"
+            "customerLoyalty":"Loyalty Points",
+            "customerLoyaltyTypes":"Loyalty Types"
         },
         "suppliers": {
             "supplierId": "Id",
@@ -76,6 +77,7 @@
         "cancel": "Cancel"
     },
     "buttons": {
-        "reset": "Reset"
+        "reset": "Reset",
+        "customerLoyaltyTypes":"Loyalty Types"
     }
 }

@@ -2,8 +2,10 @@ import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
+import CustomerLoyaltyType from '../popups/customerLoyaltyTypes/';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
 import { useTranslation } from 'react-i18next';
 import { fetchSomeCustomers } from '../../api/slices/customersSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +22,9 @@ const CustomersSearch = () => {
     const [customerEmail, setCustomerEmail] = useState('');
     const [customerPhone, setCustomerPhone] = useState('');
     const [customerLoyalty, setCustomerLoyalty] = useState('');
+    const [visible, setVisible] = useState(false);
     const [isFormReset, setIsFormReset] = useState('true');
+
     const dispatch = useDispatch();
 
     const resetAllValuesToEmpty = () => {
@@ -45,6 +49,10 @@ const CustomersSearch = () => {
     const resetAll = () => {
         setIsFormReset(true);
         resetAllValuesToEmpty();
+    };
+
+    const showLoyaltyTypes = () => {
+        setVisible(true);
     };
 
     return (
@@ -80,6 +88,10 @@ const CustomersSearch = () => {
                 </div>
                 <Button raised label={customersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={customersStatus === 'loading'} onClick={searchCustomers} />
                 <Button label={t('buttons.reset')} disabled={customersStatus === 'loading'} onClick={resetAll}></Button>
+                <Button label={t('buttons.customerLoyaltyTypes')} disabled={customersStatus === 'loading'} onClick={showLoyaltyTypes}></Button>
+                <Dialog className='modal-container' header='AAA' visible={visible} onHide={() => { if (!visible) return; setVisible(false); }}>
+                    <CustomerLoyaltyType />
+                </Dialog>
             </div>
         </div>
     )

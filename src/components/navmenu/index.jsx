@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './navmenu.css';
-import LoginModal from '../../components/login';
+import LoginModal from '../popups/login';
 import { Dialog } from 'primereact/dialog';
 
 const NavMenu = () => {
