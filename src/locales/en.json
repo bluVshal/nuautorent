@@ -28,7 +28,16 @@
             "carAddDate": "Date Added",
             "carLastModDate": "Date Last Modified"
         },
-        "customers": {},
+        "customers": {
+            "customerFName":"First Name",
+            "customerLName":"Last Name",
+            "customerMName":"Maiden Name",
+            "customerOName":"Other Name",
+            "customerAddress":"Address",
+            "customerEmail":"Email",
+            "customerPhone":"Phone",
+            "customerLoyalty":"Loyalty Points"
+        },
         "suppliers": {
             "supplierId": "Id",
             "supplierName": "Name",
