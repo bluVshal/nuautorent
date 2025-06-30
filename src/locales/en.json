@@ -29,15 +29,19 @@
             "carLastModDate": "Date Last Modified"
         },
         "customers": {
-            "customerFName":"First Name",
-            "customerLName":"Last Name",
-            "customerMName":"Maiden Name",
-            "customerOName":"Other Name",
-            "customerAddress":"Address",
-            "customerEmail":"Email",
-            "customerPhone":"Phone",
-            "customerLoyalty":"Loyalty Points",
-            "customerLoyaltyTypes":"Loyalty Types"
+            "customerFName": "First Name",
+            "customerLName": "Last Name",
+            "customerMName": "Maiden Name",
+            "customerOName": "Other Name",
+            "customerAddress": "Address",
+            "customerEmail": "Email",
+            "customerPhone": "Phone",
+            "customerLoyalty": "Loyalty Points",
+            "customerLoyaltyTypes": "Loyalty Types"
+        },
+        "maintenance": {
+            "maintenanceStartDate":"Start Date",
+            "maintenanceEndDate":"End Date"
         },
         "suppliers": {
             "supplierId": "Id",
@@ -78,6 +82,7 @@
     },
     "buttons": {
         "reset": "Reset",
-        "customerLoyaltyTypes":"Loyalty Types"
+        "customerLoyaltyTypes": "Loyalty Types",
+        "maintenanceAgencies": "Maintenance Agencies"
     }
 }
