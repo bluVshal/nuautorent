@@ -5,6 +5,7 @@ import { usersSlice} from './slices/usersSlice';
 import { customersSlice } from './slices/customersSlice';
 import { bookingSlice } from './slices/bookingSlice';
 import { rentalSlice } from './slices/rentalSlice';
+import { maintenanceSlice } from './slices/maintenanceSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     customers: customersSlice.reducer,
     booking: bookingSlice.reducer,
     rental: rentalSlice.reducer,
+    maintenance: maintenanceSlice.reducer,
   }, // Add reducers here
 });
 
