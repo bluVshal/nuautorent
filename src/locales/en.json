@@ -3,7 +3,11 @@
         "title": "NU Auto Rental Services"
     },
     "api": {
-        "booking": {},
+        "booking": {
+            "bookingPickUpDate":"Pickup Date",
+            "bookingReturnDate":"Return Date"
+
+        },
         "cars": {
             "carId": "Id",
             "carChassisNumber": "Chassis No.",
