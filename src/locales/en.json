@@ -4,9 +4,16 @@
     },
     "api": {
         "booking": {
-            "bookingPickUpDate":"Pickup Date",
-            "bookingReturnDate":"Return Date"
-
+            "bookingPickUpDate": "Pickup Date",
+            "bookingReturnDate": "Return Date",
+            "carRegNo": "Car Reg Number",
+            "customerName": "Customer Name"
+        },
+        "rental": {
+            "rentalPickupDate": "Pickup Date",
+            "rentalReturnDate": "Return Date",
+            "carRegNo": "Car Reg Number",
+            "customerName": "Customer Name"
         },
         "cars": {
             "carId": "Id",
@@ -44,8 +51,8 @@
             "customerLoyaltyTypes": "Loyalty Types"
         },
         "maintenance": {
-            "maintenanceStartDate":"Start Date",
-            "maintenanceEndDate":"End Date"
+            "maintenanceStartDate": "Start Date",
+            "maintenanceEndDate": "End Date"
         },
         "suppliers": {
             "supplierId": "Id",

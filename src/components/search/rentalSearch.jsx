@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button } from 'primereact/button';
+import { Calendar } from 'primereact/calendar';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
 import { InputText } from 'primereact/inputtext';
@@ -15,13 +16,25 @@ const schema = z.object({
 const RentalSearch = () => {
     const dispatch = useDispatch();
     const [t, i18n] = useTranslation("global");
+    const customerNameInput = useRef(null);
     const [isFormReset, setIsFormReset] = useState('true');
     const rentalStatus = useSelector(state => state.rental.status);
-    const resetAll = () => {
+    const [rentalPickupDate, setRentalPickUpDate] = useState('');
+    const [rentalReturnDate, setRentalReturnDate] = useState('');
+    const [customerName, setCustomerName] = useState('');
+    const [carRegNo, setCarRegNo] = useState('');
 
+    const resetAll = () => {
+        setRentalPickUpDate('');
+        setRentalReturnDate('');
+        setCustomerName('');
+        setCarRegNo('');
+        customerNameInput.current.focus();
     };
     const searchRental = () => {
         setIsFormReset(false);
+        setRentalPickUpDate('');
+        setRentalReturnDate('');
         dispatch(fetchSomeRental());
     };
 
@@ -30,6 +43,21 @@ const RentalSearch = () => {
         <div>
             <div className='search-main-container'>
                 <h4 className='header-text'> Rental Search </h4>
+                <div className='search-item-container'>
+
+                    <label className='lbl-search-item' htmlFor="customerName"> {t('api.rental.customerName')} </label>
+                    <InputText value={customerName} ref={customerNameInput} autoFocus className='txt-search-item' id="customerName" onChange={(event) => setCustomerName(event.target.value)} />
+
+                    <label className='lbl-search-item' htmlFor="carRegNo"> {t('api.rental.carRegNo')} </label>
+                    <InputText value={carRegNo} className='txt-search-item' id="carRegNo" onChange={(event) => setCarRegNo(event.target.value)} />
+
+                    <label className='lbl-search-item' htmlFor="rentalPickupDate"> {t('api.rental.rentalPickupDate')} </label>
+                    <Calendar id="rentalPickupDate" className='txt-search-item' value={rentalPickupDate} onChange={(e) => setRentalPickUpDate(e.value)} showButtonBar />
+
+                    <label className='lbl-search-item' htmlFor="rentalReturnDate"> {t('api.rental.rentalReturnDate')} </label>
+                    <Calendar id="rentalReturnDate" className='txt-search-item' value={rentalReturnDate} onChange={(e) => setRentalReturnDate(e.value)} showButtonBar />
+
+                </div>
                 <Button raised label={rentalStatus === 'loading' ? 'Searching...' : 'Search'} disabled={rentalStatus === 'loading'} onClick={searchRental} />
                 <Button label={t('buttons.reset')} disabled={rentalStatus === 'loading'} onClick={resetAll}></Button>
             </div>
