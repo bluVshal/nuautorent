@@ -8,7 +8,14 @@
 }
 
 body {
+  margin: 0;
   background-color: var(--nuWhite);
+  /* The frame is a fixed overlay, so the page itself never scrolls -
+     only the content inside the frame does. */
+  overflow: hidden;
+  /* App targets tablet and desktop only. Below the tablet breakpoint the
+     layout scrolls horizontally instead of collapsing. */
+  min-width: 768px;
 }
 
 button{

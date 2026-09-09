@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './navmenu.css';
 import LoginModal from '../popups/login';
 import { Dialog } from 'primereact/dialog';
@@ -25,7 +25,7 @@ const NavMenu = () => {
       {menuItemsArr.map((mnu) => {
         return (
           <div key={mnu.title} className='menu-items-container'>
-            <Link className='menu-item' to={mnu.link}> {mnu.title} </Link>
+            <NavLink className='menu-item' to={mnu.link}> {mnu.title} </NavLink>
           </div>
         );
       })}

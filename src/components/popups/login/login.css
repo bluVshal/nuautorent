@@ -15,9 +15,17 @@
 .items-container{
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: left;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin-top: 1vw;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* The login/sign-up dialog content fits within the dialog, so neither
+   scrollbar is needed. */
+.modal-container .p-dialog-content {
+    overflow: hidden;
 }
 
 .text-container{

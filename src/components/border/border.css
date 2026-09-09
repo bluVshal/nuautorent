@@ -1,28 +1,40 @@
-.inner-border {
-    width: 94.5vw;
-    height: 91.5vh;
-    border: 0.5rem solid var(--nuRed);
-    border-radius: 5.5vh;
+/* The three nested borders form a fixed frame pinned to the viewport.
+   Each layer fills its parent's content box (flex: 1) and adds a little
+   padding, producing the concentric black -> white -> red lines with a
+   small gap between them. Only the content scrolls; the frame stays put. */
+
+.outer-border {
+    position: fixed;
+    inset: 1.5vh 1.5vw;
+    box-sizing: border-box;
+    border: 0.5rem solid var(--nuBlack);
+    border-radius: 7vh;
+    padding: 0.6vh 0.6vw;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .middle-border {
-    width: 92vw;
-    height: 90vh;
+    flex: 1;
+    box-sizing: border-box;
     border: 0.5rem solid var(--nuWhite);
     border-radius: 6vh;
+    padding: 0.6vh 0.6vw;
+    display: flex;
 }
 
-.outer-border {
-    width: 97vw;
-    height: 95vh;
-    border: 0.5rem solid var(--nuBlack);
-    border-radius: 7vh;
+.inner-border {
+    flex: 1;
+    box-sizing: border-box;
+    border: 0.5rem solid var(--nuRed);
+    border-radius: 5.5vh;
+    display: flex;
+    overflow: hidden;
 }
 
 .content-container {
-    width: 89vw;
-    height: 89vh;
+    flex: 1;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding: 1.5vh 1.5vw;
+    border-radius: 4.8vh;
 }

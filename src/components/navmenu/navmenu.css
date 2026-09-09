@@ -5,6 +5,7 @@
 
 .menu-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -37,6 +38,21 @@
     text-decoration: overline;
 }
 
+.menu-item.active{
+    color: white;
+    text-decoration: overline;
+}
+
+/* Frosted-glass background applied to the container div that holds the
+   active link (matched via :has). */
+.menu-items-container:has(.menu-item.active){
+    background: rgba(134, 13, 13, 0.647);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .menu-item:active {
     text-decoration-thickness: 25px;
 }
@@ -46,4 +62,22 @@
     border: solid 0.24vh darkgray;
     padding: 1vw;
     width: 27vw;
+}
+
+/* Tablet (768px - 1024px): shrink the logo and tighten menu spacing so the
+   nav row fits, wrapping to a second line only when it must. */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .comp-logo {
+        width: 14vw;
+        height: auto;
+    }
+
+    .menu-item {
+        margin: 1vw;
+        font-size: 13px;
+    }
+
+    .menu-items-container {
+        height: 5.5vh;
+    }
 }

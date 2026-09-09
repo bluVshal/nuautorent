@@ -33,6 +33,8 @@ button {
     margin-bottom: 1vw;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .search-main-container {
@@ -63,4 +65,14 @@ button {
 .p-dropdown-trigger{
     width: 7px;
     margin-left: 3px;
+}
+
+/* Tablet (768px - 1024px): give the search panel room to grow as fields wrap
+   to additional rows instead of a fixed one-row height. */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .search-main-container {
+        height: auto;
+        min-height: 30vh;
+        padding: 2vw;
+    }
 }
