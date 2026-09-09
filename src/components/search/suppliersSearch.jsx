@@ -101,13 +101,13 @@ const SuppliersSearch = () => {
             <InputText value={supplierEmail} className='txt-search-item' id="supplieremail" onChange={handleChangeEmail}/>
             {emailError && <small className='email-error'>{emailError}</small>}
           </span>
+                  
+          <label className='lbl-search-item' htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
+          <InputText value={supplierContact} className='txt-search-item' id="suppliercontactname" onChange={handleChangeContact}/>
 
         </div>
 
         <div className='search-item-container'>
-        
-          <label className='lbl-search-item' htmlFor="suppliercontactname"> {t('api.suppliers.supplierContactName')} </label>
-          <InputText value={supplierContact} className='txt-search-item' id="suppliercontactname" onChange={handleChangeContact}/>
 
           <label className='lbl-search-item' htmlFor="supplierphone"> {t('api.suppliers.supplierPhone')} </label>
           <InputText value={supplierPhone} className='txt-search-item' id="supplierphone" onChange={handleChangePhone}/>

@@ -11,8 +11,12 @@
 }
 
 .modal-container{
-    width: 70vw;
-    height: 25vh;
+    /* Fluidly scale between tablet and desktop, but never overflow the
+       viewport or grow unusably wide. Height follows the content. */
+    width: clamp(320px, 45vw, 520px);
+    max-width: 92vw;
+    height: auto;
+    max-height: 90vh;
     border-radius: 2vw;
 }
 
@@ -61,7 +65,6 @@
     background-color: ivory;
     border: solid 0.24vh darkgray;
     padding: 1vw;
-    width: 27vw;
 }
 
 /* Tablet (768px - 1024px): shrink the logo and tighten menu spacing so the
@@ -79,5 +82,10 @@
 
     .menu-items-container {
         height: 5.5vh;
+    }
+
+    /* Give the popups more room on tablet so their content isn't cramped. */
+    .modal-container {
+        width: 70vw;
     }
 }

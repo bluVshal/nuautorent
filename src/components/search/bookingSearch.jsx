@@ -19,6 +19,7 @@ const BookingSearch = () => {
     const [customerName, setCustomerName] = useState('');
     const [carRegNo, setCarRegNo] = useState('');
     const [t, i18n] = useTranslation("global");
+    const today = new Date();
 
     const searchBooking = () => {
         setIsFormReset(false);
@@ -48,10 +49,10 @@ const BookingSearch = () => {
                     <InputText value={carRegNo} className='txt-search-item' id="carRegNo" onChange={(event) => setCarRegNo(event.target.value)} />
 
                     <label className='lbl-search-item' htmlFor="bookingPickUpDate"> {t('api.booking.bookingPickUpDate')} </label>
-                    <Calendar id="bookingPickUpDate" className='txt-search-item' value={bookingPickUpDate} onChange={(e) => setBookingPickUpDate(e.value)} showButtonBar />
+                    <Calendar id="bookingPickUpDate" className='txt-search-item date-search-item' panelClassName='date-search-panel' value={bookingPickUpDate} onChange={(e) => setBookingPickUpDate(e.value)} showButtonBar />
 
                     <label className='lbl-search-item' htmlFor="bookingReturnDate"> {t('api.booking.bookingReturnDate')} </label>
-                    <Calendar id="bookingReturnDate" className='txt-search-item' value={bookingReturnDate} onChange={(e) => setBookingReturnDate(e.value)} showButtonBar />
+                    <Calendar id="bookingReturnDate" className='txt-search-item date-search-item' panelClassName='date-search-panel' value={bookingReturnDate} onChange={(e) => setBookingReturnDate(e.value)} maxDate={today} showButtonBar />
 
                 </div>
                 <Button raised label={bookingStatus === 'loading' ? 'Searching...' : 'Search'} disabled={bookingStatus === 'loading'} onClick={searchBooking} />

@@ -8,7 +8,7 @@
     inset: 1.5vh 1.5vw;
     box-sizing: border-box;
     border: 0.5rem solid var(--nuBlack);
-    border-radius: 7vh;
+    border-radius: 7.5vh;
     padding: 0.6vh 0.6vw;
     display: flex;
 }

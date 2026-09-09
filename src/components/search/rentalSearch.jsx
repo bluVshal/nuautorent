@@ -23,6 +23,7 @@ const RentalSearch = () => {
     const [rentalReturnDate, setRentalReturnDate] = useState('');
     const [customerName, setCustomerName] = useState('');
     const [carRegNo, setCarRegNo] = useState('');
+    const today = new Date();
 
     const resetAll = () => {
         setRentalPickUpDate('');
@@ -52,10 +53,10 @@ const RentalSearch = () => {
                     <InputText value={carRegNo} className='txt-search-item' id="carRegNo" onChange={(event) => setCarRegNo(event.target.value)} />
 
                     <label className='lbl-search-item' htmlFor="rentalPickupDate"> {t('api.rental.rentalPickupDate')} </label>
-                    <Calendar id="rentalPickupDate" className='txt-search-item' value={rentalPickupDate} onChange={(e) => setRentalPickUpDate(e.value)} showButtonBar />
+                    <Calendar id="rentalPickupDate" className='txt-search-item date-search-item' panelClassName='date-search-panel' value={rentalPickupDate} onChange={(e) => setRentalPickUpDate(e.value)} showButtonBar />
 
                     <label className='lbl-search-item' htmlFor="rentalReturnDate"> {t('api.rental.rentalReturnDate')} </label>
-                    <Calendar id="rentalReturnDate" className='txt-search-item' value={rentalReturnDate} onChange={(e) => setRentalReturnDate(e.value)} showButtonBar />
+                    <Calendar id="rentalReturnDate" className='txt-search-item date-search-item' panelClassName='date-search-panel' value={rentalReturnDate} onChange={(e) => setRentalReturnDate(e.value)} maxDate={today} showButtonBar />
 
                 </div>
                 <Button raised label={rentalStatus === 'loading' ? 'Searching...' : 'Search'} disabled={rentalStatus === 'loading'} onClick={searchRental} />

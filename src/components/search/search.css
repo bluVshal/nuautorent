@@ -67,10 +67,26 @@ button {
     margin-left: 3px;
 }
 
-/* Maintenance date pickers: the className lands on the .p-calendar wrapper,
-   so color the inner input to give the fields a visible background. */
-.maintenance-date .p-inputtext {
+/* Date pickers (Maintenance, Booking, Rental): the className lands on the
+   .p-calendar wrapper, so color the inner input to give the fields a visible
+   background. The focus/active states are included so the field keeps its
+   background when chosen (PrimeReact otherwise resets it to transparent). */
+.date-search-item .p-inputtext,
+.date-search-item .p-inputtext:enabled:hover,
+.date-search-item .p-inputtext:enabled:focus,
+.date-search-item .p-inputtext.p-filled,
+.date-search-item.p-inputwrapper-focus .p-inputtext {
     background-color: var(--txt-background);
+}
+
+/* The calendar overlay renders in a body portal; give it a solid background
+   (with a subtle border/shadow) so the page behind doesn't show through. */
+.date-search-panel.p-datepicker {
+    background-color: var(--nuWhite);
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Email field wrapper so the validation message can sit below the input. */

@@ -1,25 +1,27 @@
 
 
 .btn-cancel{
-    margin: 5px;
+    flex: 0 0 auto;
+    min-width: 90px;
     background-color: rgb(161, 44, 44);
     color:rgb(198, 241, 198)
 }
 
 .btn-submit{
-    margin: 5px;
+    flex: 0 0 auto;
+    min-width: 90px;
     background-color: rgb(61, 155, 61);
     color:rgb(198, 241, 198)
 }
 
+/* Stack the form rows and let them fill the popup width evenly. */
 .items-container{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-top: 1vw;
-    max-width: 100%;
+    gap: 1rem;
+    width: 100%;
     box-sizing: border-box;
+    padding: 0.5rem 0;
 }
 
 /* The login/sign-up dialog content fits within the dialog, so neither
@@ -28,10 +30,41 @@
     overflow: hidden;
 }
 
+/* Each row: a fixed-width label next to an input that grows to fill the rest. */
 .text-container{
-    margin:5px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    margin: 0;
 }
 
-.lbl-text{
+.text-container label{
+    flex: 0 0 30%;
+    margin: 0;
+    text-align: right;
     padding-right: 5px;
+    font-family: "Manrope", sans-serif;
+    font-size: small;
+    font-weight: 800;
+}
+
+.text-container .p-inputtext{
+    flex: 0 1 35%;
+    min-width: 0;
+}
+
+/* Buttons sit side by side at the bottom, sized to their content. */
+.btn-container{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.p-dialog-title{
+    font-family: "Manrope", sans-serif;
+    font-size: medium;
+    font-weight: 800;  
 }

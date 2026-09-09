@@ -14,7 +14,7 @@ const LoginModal = () => {
         <label className='lbl-text' htmlFor="username">
           {t('signUp.username')}
         </label>
-        <InputText className='txt-search-item'ref={uNameInput} autoFocus id="username" label="Username" ></InputText>
+        <InputText className='txt-search-item' ref={uNameInput} autoFocus id="username" label="Username" ></InputText>
       </div>
 
       <div className='text-container'>
