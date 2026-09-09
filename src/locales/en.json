@@ -95,5 +95,9 @@
         "reset": "Reset",
         "customerLoyaltyTypes": "Loyalty Types",
         "maintenanceAgencies": "Maintenance Agencies"
+    },
+    "validation": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email"
     }
 }

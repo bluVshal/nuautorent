@@ -16,9 +16,26 @@ const SuppliersSearch = () => {
   const [supplierEmail, setSupplierEmail] = useState('');
   const [supplierContact, setSupplierContact] = useState('');
   const [supplierPhone, setSupplierPhone] = useState('');
+  const [emailError, setEmailError] = useState('');
   const dispatch = useDispatch();
   const suppliersStatus = useSelector(state => state.suppliers.status);
   const [t, i18n] = useTranslation("global");
+
+  const validateEmail = (value) => {
+    // Email is an optional filter: empty is fine, but if provided it must be valid.
+    if (!value || value.trim() === '') {
+      setEmailError('');
+      return true;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      setEmailError(t('validation.emailInvalid'));
+      return false;
+    }
+    setEmailError('');
+    return true;
+  };
+
   const resetAll = () => {
     setIsFormReset(true);
     nameInput.value=''
@@ -27,6 +44,7 @@ const SuppliersSearch = () => {
     setSupplierContact('');
     setSupplierEmail('');
     setSupplierPhone('');
+    setEmailError('');
     nameInput.current.focus();
   };
   const setDisplayValue = () => {
@@ -38,6 +56,9 @@ const SuppliersSearch = () => {
     }
   };
   const searchSupplier = () => {
+    if (!validateEmail(supplierEmail)) {
+      return;
+    }
     setIsFormReset(false);
     dispatch(fetchSomeSuppliers());
   };
@@ -52,6 +73,7 @@ const SuppliersSearch = () => {
 
   const handleChangeEmail = (event) => {
     setSupplierEmail(event.target.value);
+    validateEmail(event.target.value);
   }
 
   const handleChangeContact = (event) => {
@@ -75,7 +97,10 @@ const SuppliersSearch = () => {
           <InputText value={supplierAddress} className='txt-search-item' id="supplieraddress" onChange={handleChangeAddress}/>
 
           <label className='lbl-search-item' htmlFor="supplieremail"> {t('api.suppliers.supplierEmail')} </label>
-          <InputText value={supplierEmail} className='txt-search-item' id="supplieremail" onChange={handleChangeEmail}/>
+          <span className='email-field'>
+            <InputText value={supplierEmail} className='txt-search-item' id="supplieremail" onChange={handleChangeEmail}/>
+            {emailError && <small className='email-error'>{emailError}</small>}
+          </span>
 
         </div>
 

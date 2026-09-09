@@ -22,10 +22,31 @@ const CustomersSearch = () => {
     const [customerEmail, setCustomerEmail] = useState('');
     const [customerPhone, setCustomerPhone] = useState('');
     const [customerLoyalty, setCustomerLoyalty] = useState('');
+    const [emailError, setEmailError] = useState('');
     const [visible, setVisible] = useState(false);
     const [isFormReset, setIsFormReset] = useState('true');
 
     const dispatch = useDispatch();
+
+    const validateEmail = (value) => {
+        // Email is an optional filter: empty is fine, but if provided it must be valid.
+        if (!value || value.trim() === '') {
+            setEmailError('');
+            return true;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            setEmailError(t('validation.emailInvalid'));
+            return false;
+        }
+        setEmailError('');
+        return true;
+    };
+
+    const handleChangeEmail = (event) => {
+        setCustomerEmail(event.target.value);
+        validateEmail(event.target.value);
+    };
 
     const resetAllValuesToEmpty = () => {
         setCustomerFName('');
@@ -36,12 +57,16 @@ const CustomersSearch = () => {
         setCustomerEmail('');
         setCustomerPhone('');
         setCustomerLoyalty('');
+        setEmailError('');
         fNameInput.current.focus();
     };
     const setDisplayValue = () => {
 
     };
     const searchCustomers = () => {
+        if (!validateEmail(customerEmail)) {
+            return;
+        }
         setIsFormReset(false);
         dispatch(fetchSomeCustomers());
     };
@@ -77,7 +102,10 @@ const CustomersSearch = () => {
                     <InputText value={customerAddress} className='txt-search-item' id="customerAddress" onChange={(event) => setCustomerAddress(event.target.value)} />
 
                     <label className='lbl-search-item' htmlFor="customerEmail"> {t('api.customers.customerEmail')} </label>
-                    <InputText value={customerEmail} className='txt-search-item' id="customerEmail" onChange={(event) => setCustomerEmail(event.target.value)} />
+                    <span className='email-field'>
+                        <InputText value={customerEmail} className='txt-search-item' id="customerEmail" onChange={handleChangeEmail} />
+                        {emailError && <small className='email-error'>{emailError}</small>}
+                    </span>
 
                     <label className='lbl-search-item' htmlFor="customerPhone"> {t('api.customers.customerPhone')} </label>
                     <InputText value={customerPhone} className='txt-search-item' id="customerPhone" onChange={(event) => setCustomerPhone(event.target.value)} />

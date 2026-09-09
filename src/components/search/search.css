@@ -67,6 +67,27 @@ button {
     margin-left: 3px;
 }
 
+/* Maintenance date pickers: the className lands on the .p-calendar wrapper,
+   so color the inner input to give the fields a visible background. */
+.maintenance-date .p-inputtext {
+    background-color: var(--txt-background);
+}
+
+/* Email field wrapper so the validation message can sit below the input. */
+.email-field {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+/* Email validation message, shown below the email input. */
+.email-error {
+    color: var(--nuRed);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-left: 0.45vw;
+}
+
 /* Tablet (768px - 1024px): give the search panel room to grow as fields wrap
    to additional rows instead of a fixed one-row height. */
 @media (min-width: 768px) and (max-width: 1024px) {
