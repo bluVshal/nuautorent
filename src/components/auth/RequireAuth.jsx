@@ -4,9 +4,9 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 /**
  * Route guard: renders its children only when the user is authenticated (and,
- * if `roles` is given, has one of those roles). Otherwise redirects to Home
- * (where the Login dialog lives). The attempted location is stashed in
- * navigation state so we could return to it after login.
+ * if `roles` is given, has one of those roles). Unauthenticated users are sent
+ * to the login page, with the attempted location stashed so we can return to it
+ * after a successful login.
  */
 const RequireAuth = ({ children, roles }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -14,7 +14,7 @@ const RequireAuth = ({ children, roles }) => {
   const location = useLocation();
 
   if (!isAuthenticated) {
-    return <Navigate to="/" replace state={{ from: location }} />;
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
   if (roles && !roles.includes(role)) {

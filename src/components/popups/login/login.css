@@ -1,5 +1,30 @@
 
 
+/* Login-first landing page: center the sign-in card in the content area. */
+.login-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 6vh 2vw;
+}
+
+.login-title{
+    font-family: "Sen", sans-serif;
+    color: var(--nuBlack);
+    text-align: center;
+}
+
+.login-card{
+    width: min(420px, 90%);
+    background-color: ivory;
+    border: solid 0.24vh darkgray;
+    border-radius: 12px;
+    padding: 3vh 2vw;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
 .btn-cancel{
     flex: 0 0 auto;
     min-width: 90px;
