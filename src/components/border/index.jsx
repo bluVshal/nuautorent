@@ -10,6 +10,7 @@ import Rental from '../../pages/Rental';
 import Booking from '../../pages/Booking';
 import NavMenu from '../../components/navmenu';
 import Users from '../../pages/Users';
+import Login from '../../pages/Login';
 import RequireAuth from '../auth/RequireAuth';
 
 const Border = () => {
@@ -20,7 +21,8 @@ const Border = () => {
           <div className='content-container'>
             <NavMenu />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
               <Route path="/cars" element={<RequireAuth><Cars /></RequireAuth>} />
               <Route path="/suppliers" element={<RequireAuth><Suppliers /></RequireAuth>} />
               <Route path="/customers" element={<RequireAuth><Customers /></RequireAuth>} />
