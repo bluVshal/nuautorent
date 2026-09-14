@@ -4,11 +4,11 @@ import SignUp from './signup';
 import './login.css';
 
 const Login = (props) => {
-  const { type } = props;
+  const { type, onClose } = props;
 
   return (
     <div>
-      {type === 'Login' ? <LoginModal /> : <SignUp />}
+      {type === 'Login' ? <LoginModal onClose={onClose} /> : <SignUp />}
     </div>
   )
 }

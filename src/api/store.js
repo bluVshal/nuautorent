@@ -7,6 +7,7 @@ import { bookingSlice } from './slices/bookingSlice';
 import { rentalSlice } from './slices/rentalSlice';
 import { maintenanceSlice } from './slices/maintenanceSlice';
 import { maintenanceAgenciesSlice } from './slices/maintenanceAgenciesSlice';
+import { authSlice, logout } from './slices/authSlice';
 
 const store = configureStore({
   reducer: {
@@ -17,8 +18,15 @@ const store = configureStore({
     booking: bookingSlice.reducer,
     rental: rentalSlice.reducer,
     maintenance: maintenanceSlice.reducer,
-    maintenanceAgenciesSlice: maintenanceAgenciesSlice.reducer
+    maintenanceAgenciesSlice: maintenanceAgenciesSlice.reducer,
+    auth: authSlice.reducer,
   }, // Add reducers here
+});
+
+// When the http layer detects a 401 (expired/invalid token) it emits this
+// event; drop the app back to a logged-out state so the UI updates.
+window.addEventListener('auth:unauthorized', () => {
+  store.dispatch(logout());
 });
 
 export default store;
