@@ -10,6 +10,7 @@ import Rental from '../../pages/Rental';
 import Booking from '../../pages/Booking';
 import NavMenu from '../../components/navmenu';
 import Users from '../../pages/Users';
+import RequireAuth from '../auth/RequireAuth';
 
 const Border = () => {
   return (
@@ -20,13 +21,13 @@ const Border = () => {
             <NavMenu />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cars" element={<Cars />} />
-              <Route path="/suppliers" element={<Suppliers />} />
-              <Route path="/customers" element={<Customers />} />
-              <Route path="/maintenance" element={<Maintenance />} />
-              <Route path="/booking" element={<Booking />} />
-              <Route path="/rental" element={<Rental />} />
-              <Route path="/users" element={<Users />} />
+              <Route path="/cars" element={<RequireAuth><Cars /></RequireAuth>} />
+              <Route path="/suppliers" element={<RequireAuth><Suppliers /></RequireAuth>} />
+              <Route path="/customers" element={<RequireAuth><Customers /></RequireAuth>} />
+              <Route path="/maintenance" element={<RequireAuth><Maintenance /></RequireAuth>} />
+              <Route path="/booking" element={<RequireAuth><Booking /></RequireAuth>} />
+              <Route path="/rental" element={<RequireAuth><Rental /></RequireAuth>} />
+              <Route path="/users" element={<RequireAuth roles={['admin']}><Users /></RequireAuth>} />
             </Routes>
           </div>
         </div>

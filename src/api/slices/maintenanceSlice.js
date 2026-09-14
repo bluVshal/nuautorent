@@ -1,12 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import http from '../http';
 
 export const fetchSomeMaintenance = createAsyncThunk(
     'maintenance/fetch',
     async () => {
-        const response = await axios.get('http://localhost:5000/maintenance/short',{
-            headers: {Accept: 'application/json'}
-        });
+        const response = await http.get('/maintenance/short');
         return response.data;
     }
 );
