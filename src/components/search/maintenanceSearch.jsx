@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSomeMaintenance } from '../../api/slices/maintenanceSlice';
 import { toDateParam } from '../../utils/date';
+import ResultsTable from './ResultsTable';
 import MaintenanceAgencies from '../popups/maintenanceAgency';
 
 const schema = z.object({
@@ -24,6 +25,7 @@ const MaintenanceSearch = () => {
     const [isFormReset, setIsFormReset] = useState('true');
     const [visible, setVisible] = useState(false);
     const maintenanceStatus = useSelector(state => state.maintenance.status);
+    const maintenanceValue = useSelector(state => state.maintenance.value);
 
     const resetAll = () => {
         setMaintenanceStartDate('');
@@ -59,6 +61,7 @@ const MaintenanceSearch = () => {
                 </Dialog>
 
             </div>
+            <ResultsTable value={maintenanceValue} status={maintenanceStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No maintenance records found" />
         </div>
     )
 };

@@ -89,6 +89,47 @@ button {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Search results table. The app has no PrimeReact theme, so the DataTable is
+   styled directly here. The container scrolls internally for large result sets. */
+.results-container {
+    font-family: var(--search-font);
+    margin: 1vw 2vw;
+    max-height: 32vh;
+    overflow: auto;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.results-container .p-datatable table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.results-container .p-datatable th,
+.results-container .p-datatable td {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.results-container .p-datatable thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 228, 0.95);
+    font-weight: 600;
+}
+
+.results-container .p-datatable tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.results-container .p-datatable-emptymessage td {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
 /* Email field wrapper so the validation message can sit below the input. */
 .email-field {
     display: inline-flex;

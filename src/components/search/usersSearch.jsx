@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSomeUsers } from '../../api/slices/usersSlice';
+import ResultsTable from './ResultsTable';
 
 const schema = z.object({
     email: z.string().email().min(2),
@@ -17,6 +18,7 @@ const UsersSearch = () => {
     const [t, i18n] = useTranslation("global");
     const [isFormReset, setIsFormReset] = useState('true');
     const usersStatus = useSelector(state => state.users.status);
+    const usersValue = useSelector(state => state.users.value);
     const resetAll = () => {
 
     };
@@ -33,6 +35,7 @@ const UsersSearch = () => {
                 <Button raised label={usersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={usersStatus === 'loading'} onClick={searchUser} />
                 <Button label={t('buttons.reset')} disabled={usersStatus === 'loading'} onClick={resetAll}></Button>
             </div>
+            <ResultsTable value={usersValue} status={usersStatus} emptyMessage="No users found" />
         </div>
     )
 };

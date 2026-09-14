@@ -7,6 +7,7 @@ import { InputText } from 'primereact/inputtext';
 import { fetchSomeSuppliers } from '../../api/slices/suppliersSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import ResultsTable from './ResultsTable';
 
 const SuppliersSearch = () => {
   const nameInput = useRef(null);
@@ -19,6 +20,7 @@ const SuppliersSearch = () => {
   const [emailError, setEmailError] = useState('');
   const dispatch = useDispatch();
   const suppliersStatus = useSelector(state => state.suppliers.status);
+  const suppliersValue = useSelector(state => state.suppliers.value);
   const [t, i18n] = useTranslation("global");
 
   const validateEmail = (value) => {
@@ -124,6 +126,7 @@ const SuppliersSearch = () => {
       </div>
 
       <p>{setDisplayValue()}</p>
+      <ResultsTable value={suppliersValue} status={suppliersStatus} exclude={['createdDate', 'lastModified']} emptyMessage="No suppliers found" />
     </div>
   )
 }
