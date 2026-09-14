@@ -26,6 +26,15 @@ const MaintenanceSearch = () => {
     const [visible, setVisible] = useState(false);
     const maintenanceStatus = useSelector(state => state.maintenance.status);
     const maintenanceValue = useSelector(state => state.maintenance.value);
+    const columns = [
+        { field: 'maintenanceId', header: t('api.maintenance.maintenanceId') },
+        { field: 'carId', header: t('api.maintenance.carId') },
+        { field: 'maintenanceStartDate', header: t('api.maintenance.maintenanceStartDate'), type: 'date' },
+        { field: 'maintenanceEndDate', header: t('api.maintenance.maintenanceEndDate'), type: 'date' },
+        { field: 'maintenanceCost', header: t('api.maintenance.maintenanceCost') },
+        { field: 'maintenanceDescription', header: t('api.maintenance.maintenanceDescription') },
+        { field: 'active', header: t('api.maintenance.active'), type: 'boolean' },
+    ];
 
     const resetAll = () => {
         setMaintenanceStartDate('');
@@ -61,7 +70,7 @@ const MaintenanceSearch = () => {
                 </Dialog>
 
             </div>
-            <ResultsTable value={maintenanceValue} status={maintenanceStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No maintenance records found" />
+            <ResultsTable value={maintenanceValue} status={maintenanceStatus} columns={columns} emptyMessage="No maintenance records found" />
         </div>
     )
 };

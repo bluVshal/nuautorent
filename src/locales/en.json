@@ -4,16 +4,24 @@
     },
     "api": {
         "booking": {
+            "bookingId": "Booking Id",
+            "carId": "Car Id",
+            "customerId": "Customer Id",
             "bookingPickUpDate": "Pickup Date",
             "bookingReturnDate": "Return Date",
             "carRegNo": "Car Reg Number",
-            "customerName": "Customer Name"
+            "customerName": "Customer Name",
+            "active": "Active"
         },
         "rental": {
+            "rentalId": "Rental Id",
+            "carId": "Car Id",
+            "customerId": "Customer Id",
             "rentalPickupDate": "Pickup Date",
             "rentalReturnDate": "Return Date",
             "carRegNo": "Car Reg Number",
-            "customerName": "Customer Name"
+            "customerName": "Customer Name",
+            "active": "Active"
         },
         "cars": {
             "carId": "Id",
@@ -51,8 +59,15 @@
             "customerLoyaltyTypes": "Loyalty Types"
         },
         "maintenance": {
+            "maintenanceId": "Id",
+            "carId": "Car Id",
+            "maintenanceAgencyId": "Agency Id",
+            "maintenanceTypeId": "Type Id",
             "maintenanceStartDate": "Start Date",
-            "maintenanceEndDate": "End Date"
+            "maintenanceEndDate": "End Date",
+            "maintenanceCost": "Cost",
+            "maintenanceDescription": "Description",
+            "active": "Active"
         },
         "suppliers": {
             "supplierId": "Id",
@@ -68,6 +83,7 @@
         "users": {
             "userId": "Id",
             "userName": "Name",
+            "userRole": "Role",
             "lastLoginDate": "Last Login Date",
             "active": "Active",
             "createdDate": "Created Date",

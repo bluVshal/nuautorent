@@ -19,6 +19,11 @@ const UsersSearch = () => {
     const [isFormReset, setIsFormReset] = useState('true');
     const usersStatus = useSelector(state => state.users.status);
     const usersValue = useSelector(state => state.users.value);
+    const columns = [
+        { field: 'userId', header: t('api.users.userId') },
+        { field: 'userName', header: t('api.users.userName') },
+        { field: 'userRole', header: t('api.users.userRole') },
+    ];
     const resetAll = () => {
 
     };
@@ -35,7 +40,7 @@ const UsersSearch = () => {
                 <Button raised label={usersStatus === 'loading' ? 'Searching...' : 'Search'} disabled={usersStatus === 'loading'} onClick={searchUser} />
                 <Button label={t('buttons.reset')} disabled={usersStatus === 'loading'} onClick={resetAll}></Button>
             </div>
-            <ResultsTable value={usersValue} status={usersStatus} emptyMessage="No users found" />
+            <ResultsTable value={usersValue} status={usersStatus} columns={columns} emptyMessage="No users found" />
         </div>
     )
 };

@@ -21,6 +21,14 @@ const SuppliersSearch = () => {
   const dispatch = useDispatch();
   const suppliersStatus = useSelector(state => state.suppliers.status);
   const suppliersValue = useSelector(state => state.suppliers.value);
+  const columns = [
+    { field: 'supplierName', header: t('api.suppliers.supplierName') },
+    { field: 'supplierAddress', header: t('api.suppliers.supplierAddress') },
+    { field: 'supplierEmail', header: t('api.suppliers.supplierEmail') },
+    { field: 'supplierContactName', header: t('api.suppliers.supplierContactName') },
+    { field: 'supplierPhone', header: t('api.suppliers.supplierPhone') },
+    { field: 'active', header: t('api.suppliers.active'), type: 'boolean' },
+  ];
   const [t, i18n] = useTranslation("global");
 
   const validateEmail = (value) => {
@@ -126,7 +134,7 @@ const SuppliersSearch = () => {
       </div>
 
       <p>{setDisplayValue()}</p>
-      <ResultsTable value={suppliersValue} status={suppliersStatus} exclude={['createdDate', 'lastModified']} emptyMessage="No suppliers found" />
+      <ResultsTable value={suppliersValue} status={suppliersStatus} columns={columns} emptyMessage="No suppliers found" />
     </div>
   )
 }
