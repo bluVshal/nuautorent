@@ -11,6 +11,7 @@ const NavMenu = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const role = useSelector((state) => state.auth.role);
+  const username = useSelector((state) => state.auth.username);
   const menuItemsArr = [
     { "link": "/", "title": "Home" },
     { "link": "/cars", "title": "Cars" },
@@ -38,6 +39,13 @@ const NavMenu = () => {
           </div>
         );
       })}
+
+      {isAuthenticated && (
+        <div className='menu-items-container user-info'>
+          <span className='user-name'>{username}</span>
+          {role && <span className='user-role'>{role}</span>}
+        </div>
+      )}
 
       <div className='menu-items-container'>
         {isAuthenticated ? (
