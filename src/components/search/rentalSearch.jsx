@@ -7,6 +7,7 @@ import { InputText } from 'primereact/inputtext';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSomeRental } from '../../api/slices/rentalSlice';
+import { toDateParam } from '../../utils/date';
 
 const schema = z.object({
     email: z.string().email().min(2),
@@ -34,9 +35,12 @@ const RentalSearch = () => {
     };
     const searchRental = () => {
         setIsFormReset(false);
-        setRentalPickUpDate('');
-        setRentalReturnDate('');
-        dispatch(fetchSomeRental());
+        dispatch(fetchSomeRental({
+            customerName,
+            carRegNo,
+            rentalPickupDate: toDateParam(rentalPickupDate),
+            rentalReturnDate: toDateParam(rentalReturnDate),
+        }));
     };
 
 

@@ -8,6 +8,7 @@ import { Calendar } from 'primereact/calendar';
 import { fetchSomeBooking } from '../../api/slices/bookingSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { toDateParam } from '../../utils/date';
 
 const BookingSearch = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,12 @@ const BookingSearch = () => {
 
     const searchBooking = () => {
         setIsFormReset(false);
-        dispatch(fetchSomeBooking());
+        dispatch(fetchSomeBooking({
+            customerName,
+            carRegNo,
+            bookingPickUpDate: toDateParam(bookingPickUpDate),
+            bookingReturnDate: toDateParam(bookingReturnDate),
+        }));
     };
 
     const resetAll = () => {

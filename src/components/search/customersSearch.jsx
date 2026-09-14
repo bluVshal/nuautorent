@@ -68,7 +68,15 @@ const CustomersSearch = () => {
             return;
         }
         setIsFormReset(false);
-        dispatch(fetchSomeCustomers());
+        dispatch(fetchSomeCustomers({
+            customerFName,
+            customerLName,
+            customerMName,
+            customerOName,
+            customerAddress,
+            customerEmail,
+            customerPhone,
+        }));
     };
 
     const resetAll = () => {

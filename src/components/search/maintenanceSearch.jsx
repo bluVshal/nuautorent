@@ -8,6 +8,7 @@ import { InputText } from 'primereact/inputtext';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSomeMaintenance } from '../../api/slices/maintenanceSlice';
+import { toDateParam } from '../../utils/date';
 import MaintenanceAgencies from '../popups/maintenanceAgency';
 
 const schema = z.object({
@@ -31,7 +32,10 @@ const MaintenanceSearch = () => {
 
     const searchMaintenance = () => {
         setIsFormReset(false);
-        dispatch(fetchSomeMaintenance());
+        dispatch(fetchSomeMaintenance({
+            maintenanceStartDate: toDateParam(maintenanceStartDate),
+            maintenanceEndDate: toDateParam(maintenanceEndDate),
+        }));
     }
     const showMaintenanceAgencies = () => {
         setVisible(true);

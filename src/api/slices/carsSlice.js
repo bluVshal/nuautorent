@@ -3,8 +3,8 @@ import http from '../http';
 
 export const fetchSomeCars = createAsyncThunk(
     'cars/fetch',
-    async () => {
-        const response = await http.get('/cars/short');
+    async (params) => {
+        const response = await http.get('/cars/short', { params });
         return response.data;
     }
 );

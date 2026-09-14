@@ -60,7 +60,13 @@ const SuppliersSearch = () => {
       return;
     }
     setIsFormReset(false);
-    dispatch(fetchSomeSuppliers());
+    dispatch(fetchSomeSuppliers({
+      supplierName,
+      supplierAddress,
+      supplierEmail,
+      supplierContactName: supplierContact,
+      supplierPhone,
+    }));
   };
 
   const handleChangeSupName = (event) => {
