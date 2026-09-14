@@ -43,6 +43,25 @@
     text-decoration: overline;
 }
 
+/* Logged-in user's name + role, shown in the nav bar. */
+.user-info{
+    flex-direction: column;
+    padding: 0 1vw;
+}
+
+.user-name{
+    color: rgb(219, 192, 38);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.user-role{
+    color: azure;
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
 .menu-item.active{
     color: white;
     text-decoration: overline;
