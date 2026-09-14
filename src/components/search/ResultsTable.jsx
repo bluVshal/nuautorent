@@ -11,6 +11,22 @@ const humanize = (key) =>
     .replace(/^./, (c) => c.toUpperCase())
     .trim();
 
+// Format a cell value for display. `type` (from the column config) forces a
+// format; otherwise booleans are still rendered as Yes/No.
+const formatCell = (value, type) => {
+  if (value === null || value === undefined || value === '') {
+    return '';
+  }
+  if (type === 'boolean' || typeof value === 'boolean') {
+    return value ? 'Yes' : 'No';
+  }
+  if (type === 'date') {
+    const parsed = new Date(value);
+    return Number.isNaN(parsed.getTime()) ? String(value) : parsed.toLocaleDateString();
+  }
+  return value;
+};
+
 /**
  * Renders search results in a table below the search criteria.
  *
@@ -47,7 +63,13 @@ const ResultsTable = ({ value, status, columns, exclude = [], emptyMessage = 'No
         stripedRows
       >
         {cols.map((c) => (
-          <Column key={c.field} field={c.field} header={c.header} sortable />
+          <Column
+            key={c.field}
+            field={c.field}
+            header={c.header}
+            body={(row) => formatCell(row[c.field], c.type)}
+            sortable
+          />
         ))}
       </DataTable>
     </div>

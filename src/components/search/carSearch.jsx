@@ -22,6 +22,10 @@ const CarSearch = () => {
   const [isFormReset, setIsFormReset] = useState('true');
   const carsStatus = useSelector(state => state.cars.status);
   const carsValue = useSelector(state => state.cars.value);
+  const columns = [
+    { field: 'carMake', header: t('api.cars.carMake') },
+    { field: 'carModel', header: t('api.cars.carModel') },
+  ];
   const [t, i18n] = useTranslation("global");
   const carStatus = ['Available', 'Rented', 'Maintenance', 'Sold'];
   const carType = ['Small', 'Compact', 'Large', 'Limousine'];
@@ -119,7 +123,7 @@ const CarSearch = () => {
       </div>
 
       <p>{setDisplayValue()}</p>
-      <ResultsTable value={carsValue} status={carsStatus} emptyMessage="No cars found" />
+      <ResultsTable value={carsValue} status={carsStatus} columns={columns} emptyMessage="No cars found" />
     </div>
   )
 };

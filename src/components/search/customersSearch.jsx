@@ -16,6 +16,16 @@ const CustomersSearch = () => {
     const [t, i18n] = useTranslation("global");
     const customersStatus = useSelector(state => state.customers.status);
     const customersValue = useSelector(state => state.customers.value);
+    const columns = [
+        { field: 'customerFName', header: t('api.customers.customerFName') },
+        { field: 'customerLName', header: t('api.customers.customerLName') },
+        { field: 'customerMName', header: t('api.customers.customerMName') },
+        { field: 'customerOName', header: t('api.customers.customerOName') },
+        { field: 'customerAddress', header: t('api.customers.customerAddress') },
+        { field: 'customerEmail', header: t('api.customers.customerEmail') },
+        { field: 'customerPhone', header: t('api.customers.customerPhone') },
+        { field: 'customerLoyalty', header: t('api.customers.customerLoyalty') },
+    ];
     const [customerFName, setCustomerFName] = useState('');
     const [customerLName, setCustomerLName] = useState('');
     const [customerMName, setCustomerMName] = useState('');
@@ -131,7 +141,7 @@ const CustomersSearch = () => {
                     <CustomerLoyaltyType />
                 </Dialog>
             </div>
-            <ResultsTable value={customersValue} status={customersStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No customers found" />
+            <ResultsTable value={customersValue} status={customersStatus} columns={columns} emptyMessage="No customers found" />
         </div>
     )
 }

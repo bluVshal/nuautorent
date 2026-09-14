@@ -22,6 +22,14 @@ const RentalSearch = () => {
     const [isFormReset, setIsFormReset] = useState('true');
     const rentalStatus = useSelector(state => state.rental.status);
     const rentalValue = useSelector(state => state.rental.value);
+    const columns = [
+        { field: 'rentalId', header: t('api.rental.rentalId') },
+        { field: 'carId', header: t('api.rental.carId') },
+        { field: 'customerId', header: t('api.rental.customerId') },
+        { field: 'rentalPickupDate', header: t('api.rental.rentalPickupDate'), type: 'date' },
+        { field: 'rentalReturnDate', header: t('api.rental.rentalReturnDate'), type: 'date' },
+        { field: 'active', header: t('api.rental.active'), type: 'boolean' },
+    ];
     const [rentalPickupDate, setRentalPickUpDate] = useState('');
     const [rentalReturnDate, setRentalReturnDate] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -68,7 +76,7 @@ const RentalSearch = () => {
                 <Button raised label={rentalStatus === 'loading' ? 'Searching...' : 'Search'} disabled={rentalStatus === 'loading'} onClick={searchRental} />
                 <Button label={t('buttons.reset')} disabled={rentalStatus === 'loading'} onClick={resetAll}></Button>
             </div>
-            <ResultsTable value={rentalValue} status={rentalStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No rentals found" />
+            <ResultsTable value={rentalValue} status={rentalStatus} columns={columns} emptyMessage="No rentals found" />
         </div>
     )
 };

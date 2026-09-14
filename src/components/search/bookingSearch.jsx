@@ -17,6 +17,14 @@ const BookingSearch = () => {
     const [isFormReset, setIsFormReset] = useState('true');
     const bookingStatus = useSelector(state => state.booking.status);
     const bookingValue = useSelector(state => state.booking.value);
+    const columns = [
+        { field: 'bookingId', header: t('api.booking.bookingId') },
+        { field: 'carId', header: t('api.booking.carId') },
+        { field: 'customerId', header: t('api.booking.customerId') },
+        { field: 'bookingPickUpDate', header: t('api.booking.bookingPickUpDate'), type: 'date' },
+        { field: 'bookingReturnDate', header: t('api.booking.bookingReturnDate'), type: 'date' },
+        { field: 'active', header: t('api.booking.active'), type: 'boolean' },
+    ];
     const [bookingReturnDate, setBookingReturnDate] = useState('');
     const [bookingPickUpDate, setBookingPickUpDate] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -66,7 +74,7 @@ const BookingSearch = () => {
                 <Button raised label={bookingStatus === 'loading' ? 'Searching...' : 'Search'} disabled={bookingStatus === 'loading'} onClick={searchBooking} />
                 <Button label={t('buttons.reset')} disabled={bookingStatus === 'loading'} onClick={resetAll}></Button>
             </div>
-            <ResultsTable value={bookingValue} status={bookingStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No bookings found" />
+            <ResultsTable value={bookingValue} status={bookingStatus} columns={columns} emptyMessage="No bookings found" />
         </div>
     )
 }
