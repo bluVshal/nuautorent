@@ -59,7 +59,16 @@ const CarSearch = () => {
   };
   const searchCar = () => {
     setIsFormReset(false);
-    dispatch(fetchSomeCars());
+    dispatch(fetchSomeCars({
+      carMake,
+      carModel,
+      carType: carSelectedType || undefined,
+      carStatus: carSelectedStatus || undefined,
+      carTransmission: carSelectedTransmission || undefined,
+      carNTARegNumber,
+      isCarElectric: carElectric ? true : undefined,
+      isCarHybrid: carHybrid ? true : undefined,
+    }));
   };
 
   return (
