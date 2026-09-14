@@ -9,12 +9,14 @@ import { fetchSomeBooking } from '../../api/slices/bookingSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toDateParam } from '../../utils/date';
+import ResultsTable from './ResultsTable';
 
 const BookingSearch = () => {
     const dispatch = useDispatch();
     const customerNameInput = useRef(null);
     const [isFormReset, setIsFormReset] = useState('true');
     const bookingStatus = useSelector(state => state.booking.status);
+    const bookingValue = useSelector(state => state.booking.value);
     const [bookingReturnDate, setBookingReturnDate] = useState('');
     const [bookingPickUpDate, setBookingPickUpDate] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -64,6 +66,7 @@ const BookingSearch = () => {
                 <Button raised label={bookingStatus === 'loading' ? 'Searching...' : 'Search'} disabled={bookingStatus === 'loading'} onClick={searchBooking} />
                 <Button label={t('buttons.reset')} disabled={bookingStatus === 'loading'} onClick={resetAll}></Button>
             </div>
+            <ResultsTable value={bookingValue} status={bookingStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No bookings found" />
         </div>
     )
 }

@@ -9,6 +9,7 @@ import { RadioButton } from 'primereact/radiobutton';
 import { fetchSomeCars } from '../../api/slices/carsSlice';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import ResultsTable from './ResultsTable';
 
 const schema = z.object({
   email: z.string().email().min(2),
@@ -20,6 +21,7 @@ const CarSearch = () => {
   const makeInput = useRef(null);
   const [isFormReset, setIsFormReset] = useState('true');
   const carsStatus = useSelector(state => state.cars.status);
+  const carsValue = useSelector(state => state.cars.value);
   const [t, i18n] = useTranslation("global");
   const carStatus = ['Available', 'Rented', 'Maintenance', 'Sold'];
   const carType = ['Small', 'Compact', 'Large', 'Limousine'];
@@ -117,6 +119,7 @@ const CarSearch = () => {
       </div>
 
       <p>{setDisplayValue()}</p>
+      <ResultsTable value={carsValue} status={carsStatus} emptyMessage="No cars found" />
     </div>
   )
 };

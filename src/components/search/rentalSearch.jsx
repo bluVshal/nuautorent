@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSomeRental } from '../../api/slices/rentalSlice';
 import { toDateParam } from '../../utils/date';
+import ResultsTable from './ResultsTable';
 
 const schema = z.object({
     email: z.string().email().min(2),
@@ -20,6 +21,7 @@ const RentalSearch = () => {
     const customerNameInput = useRef(null);
     const [isFormReset, setIsFormReset] = useState('true');
     const rentalStatus = useSelector(state => state.rental.status);
+    const rentalValue = useSelector(state => state.rental.value);
     const [rentalPickupDate, setRentalPickUpDate] = useState('');
     const [rentalReturnDate, setRentalReturnDate] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -66,6 +68,7 @@ const RentalSearch = () => {
                 <Button raised label={rentalStatus === 'loading' ? 'Searching...' : 'Search'} disabled={rentalStatus === 'loading'} onClick={searchRental} />
                 <Button label={t('buttons.reset')} disabled={rentalStatus === 'loading'} onClick={resetAll}></Button>
             </div>
+            <ResultsTable value={rentalValue} status={rentalStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No rentals found" />
         </div>
     )
 };

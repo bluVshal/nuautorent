@@ -9,11 +9,13 @@ import { Dialog } from 'primereact/dialog';
 import { useTranslation } from 'react-i18next';
 import { fetchSomeCustomers } from '../../api/slices/customersSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import ResultsTable from './ResultsTable';
 
 const CustomersSearch = () => {
     const fNameInput = useRef(null);
     const [t, i18n] = useTranslation("global");
     const customersStatus = useSelector(state => state.customers.status);
+    const customersValue = useSelector(state => state.customers.value);
     const [customerFName, setCustomerFName] = useState('');
     const [customerLName, setCustomerLName] = useState('');
     const [customerMName, setCustomerMName] = useState('');
@@ -129,6 +131,7 @@ const CustomersSearch = () => {
                     <CustomerLoyaltyType />
                 </Dialog>
             </div>
+            <ResultsTable value={customersValue} status={customersStatus} exclude={['createdDate', 'lastModifiedDate']} emptyMessage="No customers found" />
         </div>
     )
 }
